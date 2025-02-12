@@ -6,9 +6,11 @@ app.get("/", function (req, res) {
   res.send("hehehehe");
 });
 
-app.use("/api/student", studentRouter);
-app.use("/api/teacher", teacherRouter);
-app.use("/api/admin", adminRouter);
-app.use("/api/mainAdmin", mainAdminRouter);
+// app.use("/api/student", studentRouter);
+// app.use("/api/teacher", teacherRouter);
+// app.use("/api/admin", adminRouter);
+// app.use("/api/mainAdmin", mainAdminRouter);
 
-app.listen(3000);
+app.listen(3000,()=>{
+  console.log("Server is running on port 3000");
+});
