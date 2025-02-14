@@ -28,10 +28,10 @@ const schoolSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  feeStructure: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "feeStructure",
-  },
+  // feeStructure: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "feeStructure",
+  // },
 });
 
 module.exports = mongoose.model("school", schoolSchema);

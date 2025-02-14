@@ -1,15 +1,6 @@
 import mongoose from "mongoose";
 
 const parentSchema = new mongoose.Schema({
-  studentName: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "student",
-  },
-  school: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "school",
-  },
-
   fatherName: {
     type: String,
     required: true,
@@ -48,6 +39,14 @@ const parentSchema = new mongoose.Schema({
   pincode: {
     type: Number,
   },
+  // studentName: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "student",
+  // },
+  // school: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "school",
+  // },
 });
 
 module.exports = mongoose.model("parent", parentSchema);

@@ -4,10 +4,6 @@ const studentSchema = new mongoose.Schema({
   session: {
     type: Number,
   },
-  school: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "school",
-  },
   name: {
     type: String,
     required: true,
@@ -30,14 +26,6 @@ const studentSchema = new mongoose.Schema({
   address: {
     type: String,
   },
-  fees: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "fees",
-  },
-  class: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "class",
-  },
   examination: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "exam",
@@ -57,6 +45,18 @@ const studentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "studentFee",
   },
+  // fees: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "fees",
+  // },
+  // class: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "class",
+  // },
+  // school: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "school",
+  // },
 });
 
 module.exports = mongoose.model("student", studentSchema);

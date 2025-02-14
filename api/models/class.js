@@ -5,10 +5,6 @@ const classSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  school: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "school",
-  },
   name: {
     type: String,
     required: true,
@@ -25,10 +21,14 @@ const classSchema = new mongoose.Schema({
       ref: "student",
     },
   ],
-  feeStructure: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "feeStructure",
-  },
+  // school: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "school",
+  // },
+  // feeStructure: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "feeStructure",
+  // },
 });
 
 module.exports = mongoose.model("class", classSchema);

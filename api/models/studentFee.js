@@ -2,20 +2,16 @@ import mongoose from "mongoose";
 
 
 const studentFeeSchema = new mongoose.Schema({
-  student: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "student",
-    required: true,
-  },
-  feeStructure: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "feeStructure",
-    required: true,
-  },
   feeComponents: [
     {
       component: { type: mongoose.Schema.Types.ObjectId, ref: "FeeComponent" },
       amount: { type: Number, required: true }, // Allows modifying student-specific amounts
+    },
+  ],
+    congessionComponents: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "congessionComponent",
     },
   ],
   totalAmount: {
@@ -69,10 +65,20 @@ const studentFeeSchema = new mongoose.Schema({
   },
   payments: [
     {
-      date: { type: Date, default: Date.now },
-      amount: { type: Number, required: true },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "payments",
     },
   ],
+  // student: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "student",
+  //   required: true,
+  // },
+  // feeStructure: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "feeStructure",
+  //   required: true,
+  // },
 });
 
 studentFeeSchema.pre("validate", async function (next) {
