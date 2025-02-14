@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-
+import mongoose from "mongoose";
 const schoolSchema = new mongoose.Schema({
   name: {
     type: String,

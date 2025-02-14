@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-import student from "./student";
+import mongoose from "mongoose";
 
 const parentSchema = new mongoose.Schema({
   studentName: {

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const feeComponentSchema = new mongoose.Schema({
   name: {

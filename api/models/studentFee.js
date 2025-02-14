@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const FeeComponent = require("./feeComponent");
+import mongoose from "mongoose";
+
 
 const studentFeeSchema = new mongoose.Schema({
   student: {

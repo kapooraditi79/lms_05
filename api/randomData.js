@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const faker = require("faker");
+import mongoose from "mongoose";
+import faker from "faker";
 
 // Import your models
 const FeeComponent = require("./models/feeComponent");
@@ -8,9 +8,11 @@ const StudentFee = require("./models/studentFee");
 const School = require("./models/school");
 const Student = require("./models/student");
 
+const url=process.env.MONGO_URL
+
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://thinktank7997:QKWYiKVRt62o9cCE@cluster0.tqoji.mongodb.net/",
+  url,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
