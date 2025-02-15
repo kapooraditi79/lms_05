@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema({
   session: {
-    type: Number,
+    type: String,
   },
   name: {
     type: String,
@@ -14,7 +14,7 @@ const studentSchema = new mongoose.Schema({
   },
   dob: {
     type: Date,
-    //required: true,
+    required: true,
   },
   parentName: {
     type: mongoose.Schema.Types.ObjectId,
@@ -26,14 +26,7 @@ const studentSchema = new mongoose.Schema({
   address: {
     type: String,
   },
-  examination: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "exam",
-  },
-  certificate: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "certificate",
-  },
+
   transport: {
     type: String,
   },
@@ -45,6 +38,14 @@ const studentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "studentFee",
   },
+  // examination: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "exam",
+  // },
+  // certificate: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "certificate",
+  // },
   // fees: {
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: "fees",

@@ -12,12 +12,11 @@ const teacherSchema = new mongoose.Schema({
   salary: {
     type: Number,
   },
-  subjects: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "subjects",
-    },
-  ],
+  // subjects: [
+  //   {
+  //     type: String
+  //   }
+  // ],
   // school: {
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: "school",
