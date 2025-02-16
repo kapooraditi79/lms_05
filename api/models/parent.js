@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { model } from "mongoose";
 
 const parentSchema = new mongoose.Schema({
   fatherName: {
@@ -6,7 +6,7 @@ const parentSchema = new mongoose.Schema({
     required: true,
   },
   fatherMobile: {
-    type: Number,
+    type: String,
     required: true,
   },
   fatherEmail: {
@@ -14,20 +14,19 @@ const parentSchema = new mongoose.Schema({
     required: true,
     unique: true, // Ensures emails are unique
   },
-
   motherName: {
     type: String,
     required: true,
   },
   motherNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
   guardianName: {
     type: String,
   },
   guardianNumber: {
-    type: Number,
+    type: String,
   },
 
   address: {
@@ -48,5 +47,5 @@ const parentSchema = new mongoose.Schema({
   //   ref: "school",
   // },
 });
-
-module.exports = mongoose.model("parent", parentSchema);
+const parentModel=model('parent',parentSchema);
+export default parentModel;
