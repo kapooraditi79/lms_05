@@ -8,10 +8,10 @@ const studentFeeSchema = new mongoose.Schema({
       amount: { type: Number, required: true }, // Allows modifying student-specific amounts
     },
   ],
-    congessionComponents: [
+    concessionComponents: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "congessionComponent",
+      ref: "concessionComponent",
     },
   ],
   totalAmount: {

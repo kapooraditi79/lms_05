@@ -13,10 +13,10 @@ const feeStructureSchema = new mongoose.Schema({
   //     ref: "congessionComponent",
   //   },
   // ],
-  // school: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "school",
-  // },
+  school: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "school",
+  },
   // class: {
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: "class",
