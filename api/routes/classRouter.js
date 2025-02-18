@@ -5,7 +5,7 @@ import {
   getAllClass,
   getClassById,
   updateClass,
-} from "../controllers/classController";
+} from "../controllers/classController.js";
 const router = express.Router();
 
 // Get all the classes

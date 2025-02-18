@@ -73,17 +73,28 @@ const generateSchools = async () => {
 };
 
 // Function to generate random students
-const generateStudents = async (count) => {
+export const generateStudents = async (count = 10) => {
   const students = [];
+
   for (let i = 0; i < count; i++) {
-    const student = new Student({
+    const student = new studentModel({
+      session: `2023-2024`,
       name: faker.name.findName(),
-      age: faker.random.number({ min: 5, max: 18 }),
-      grade: faker.random.number({ min: 1, max: 12 }),
+      age: faker.datatype.number({ min: 5, max: 18 }),
+      dob: faker.date.past(18, new Date("2018-01-01")), // Random DOB within 18 years
+      parentName: null, // Assuming no parent data for now
+      aadhar_number: faker.datatype.number({ min: 100000000000, max: 999999999999 }).toString(),
+      address: faker.address.streetAddress(),
+      transport: faker.random.arrayElement(["Bus", "Car", "Bicycle", "Walk"]),
+      attendance: null, // Assuming no attendance data initially
+      studentFee: null, // Assuming no fee data initially
     });
+
     await student.save();
+    console.log("Generated student")
     students.push(student._id);
   }
+
   return students;
 };
 

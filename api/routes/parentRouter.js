@@ -5,7 +5,7 @@ import {
   getAllParent,
   getParentById,
   updateParent,
-} from "../controllers/parentController";
+} from "../controllers/parentController.js";
 const router = express.Router();
 
 router.get("/", getAllParent);
