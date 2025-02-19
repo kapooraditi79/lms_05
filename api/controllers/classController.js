@@ -62,6 +62,27 @@ export const createClass = [
 //   }
 // };
 
+//creating a function to get all classes of a session
+export const getClassBySession = async function (req, res) {
+  try {
+    const { session } = req.params;
+    if (!session) {
+      return res.status(400).json({ message: "Please provide a session" });
+    }
+    if (session) {
+      const classes = await Class.find({ session: session });
+      if (classes.length === 0) {
+        return res
+          .status(404)
+          .json({ message: "No classes found for this session" });
+      }
+      res.status(200).json(classes);
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const getClassByIdOrName = async function (req, res) {
   try {
     const { id } = req.params;

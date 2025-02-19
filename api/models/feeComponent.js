@@ -9,6 +9,11 @@ const feeComponentSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  periodicity: {
+    type: String,
+    enum: ["monthly", "quarterly", "half-yearly", "annually"],
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("feeComponent", feeComponentSchema);
