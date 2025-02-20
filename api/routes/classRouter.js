@@ -1,9 +1,9 @@
 import express from "express";
 import {
   createClass,
-  deleteClass,
+  deleteClassByIdOrName,
   getAllClass,
-  getClassById,
+  getClassByIdOrName,
   updateClass,
 } from "../controllers/classController.js";
 const router = express.Router();
@@ -12,15 +12,15 @@ const router = express.Router();
 router.get("/", getAllClass);
 
 // Create a new class or Add a new class
-router.post("/create", createClass);
+router.post("/", createClass);
 
 // Get a specific class by ID
-router.get("/create/:id", getClassById);
+router.get("/:id", getClassByIdOrName);
 
 // Update a specific class by ID
-router.put("/create/:id", updateClass);
+router.put("/:id", updateClass);
 
 // Delete a specific class by ID
-router.delete("/delete/:id", deleteClass);
+router.delete("/:id", deleteClassByIdOrName);
 
 export default router;

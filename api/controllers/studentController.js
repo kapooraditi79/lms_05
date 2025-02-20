@@ -3,6 +3,7 @@ import Student from "../models/student.js";
 export const getAllStudents = async (req, res) => {
   try {
     const students = await Student.find();
+    if(students.length > 0) console.log("got all the students")
     res.status(200).json(students);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -11,18 +12,34 @@ export const getAllStudents = async (req, res) => {
 
 export const createStudent = async (req, res) => {
   try {
+    const { regNo, rollNo, class: studentClass } = req.body;
+    const existingRegNo = await Student.findOne({ regNo });
+    if (existingRegNo) {
+      return res.status(400).json({ message: "A student with this Registration Number already exists." });
+    }
+    const existingRollNo = await Student.findOne({ rollNo, class: studentClass });
+    if (existingRollNo) {
+      return res.status(400).json({ message: "A student with this Roll Number already exists in the same class." });
+    }
     const newStudent = new Student(req.body);
-    await newStudent.save();
+    const response=await newStudent.save();
+    if(response){
+      console.log("created new student")
+    }
     res.status(201).json(newStudent);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
+
 export const getStudentById = async (req, res) => {
   try {
-    const student = await Student.findById(req.params.id);
+    const { regNo } = req.params;
+    console.log(regNo)
+    const student = await Student.findOne({regNo});
     if (!student) return res.status(404).json({ message: "Student not found" });
+    else console.log("found by Id")
     res.status(200).json(student);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,8 +48,10 @@ export const getStudentById = async (req, res) => {
 
 export const updateStudent = async (req, res) => {
   try {
-    const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const {regNo}=req.params
+    const updatedStudent = await Student.findOneAndUpdate(regNo, req.body, { new: true });
     if (!updatedStudent) return res.status(404).json({ message: "Student not found" });
+    else console.log("updated")
     res.status(200).json(updatedStudent);
   } catch (error) {
     res.status(400).json({ message: error.message });

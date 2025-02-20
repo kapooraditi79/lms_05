@@ -5,17 +5,51 @@ const studentSchema = new mongoose.Schema(
     session: {
       type: String,
     },
-    name: {
+    firstName: {
       type: String,
       required: true,
     },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    regNo:{
+      type: String,
+      required: true,
+    },
+    rollNo:{
+      type: String,
+      required: true,
+    },
+    gender:{
+      type: String,
+      required: true,
+    },
+    class:{
+      type: String,
+      required: true,
+    },
+    section:{
+      type: String,
+      required: true,
+    },
+    status: { 
+      type: String, enum: ["Active", "Inactive"], default: "Active" 
+    },
+    grade:{
+      type: String,
+    },
+    profileImage:{
+      type: String,
+      // required: true,
+    },
     age: {
       type: Number,
-      required: true,
+      // required: true,
     },
     dob: {
       type: Date,
-      required: true,
+      // required: true,
     },
     parentName: {
       type: mongoose.Schema.Types.ObjectId,
@@ -38,26 +72,6 @@ const studentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "studentFee",
     },
-    // examination: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "exam",
-    // },
-    // certificate: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "certificate",
-    // },
-    // fees: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "fees",
-    // },
-    // class: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "class",
-    // },
-    // school: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "school",
-    // },
   },
   { timestamps: true }
 );

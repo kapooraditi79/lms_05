@@ -23,13 +23,12 @@ export const getAllClass = async (req, res) => {
 //   }
 // };
 
-export const createClass = [
+export const createClass =async (req,res) =>{
   //validating if both session and classname are typed by user
-  body("session").notEmpty().withMessage("session is required"),
-  body("className").notEmpty().withMessage("className is required"),
-  //withMessage is called only if the notEmpty() condition is not met
+  // body("session").notEmpty().withMessage("session is required"),
+  // body("className").notEmpty().withMessage("className is required"),
+  // //withMessage is called only if the notEmpty() condition is not met
 
-  async function (req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -49,8 +48,7 @@ export const createClass = [
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
-  },
-];
+};
 
 // export const getClassById = async (req, res) => {
 //   try {
