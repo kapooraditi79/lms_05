@@ -13,16 +13,6 @@ export const getAllClass = async (req, res) => {
   }
 };
 
-// export const createClass = async (req, res) => {
-//   try {
-//     const newClass = new Class(req.body);
-//     await newClass.save();
-//     res.status(201).json(newClass);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// };
-
 export const createClass = [
   //validating if both session and classname are typed by user
   body("session").notEmpty().withMessage("session is required"),
@@ -250,3 +240,5 @@ export const addStudentToClass = async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 };
+
+//add student to a class
