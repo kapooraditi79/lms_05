@@ -180,7 +180,7 @@ const AddStudent = () => {
                           <CommonSelect
                           className="select"
                           options={academicYear}
-                          defaultValue={isEdit? academicYear.find(year=> year.value==student.session): undefined}
+                          defaultValue={isEdit? academicYear.find(year=> year.value===student.session): undefined}
                           onChange={(option)=>{
                             setStudent((prev)=>({
                               ...prev,session:option?option.value: ""

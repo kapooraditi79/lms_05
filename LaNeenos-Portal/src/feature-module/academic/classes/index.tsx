@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { classes } from "../../../core/data/json/classes";
 import Table from "../../../core/common/dataTable/index";
 import PredefinedDateRanges from "../../../core/common/datePicker";
@@ -8,57 +8,69 @@ import {
   classSylabus,
 } from "../../../core/common/selectoption/selectoption";
 import CommonSelect from "../../../core/common/commonSelect";
-import { TableData } from "../../../core/data/interface";
+import { ClassesInt, TableData } from "../../../core/data/interface";
 import { Link } from "react-router-dom";
 import TooltipOption from "../../../core/common/tooltipOption";
 import { all_routes } from "../../router/all_routes";
+import axios from "axios";
 
 const Classes = () => {
-  const routes = all_routes;
-
-  const data = classes;
   const dropdownMenuRef = useRef<HTMLDivElement | null>(null);
-  const handleApplyClick = () => {
-    if (dropdownMenuRef.current) {
-      dropdownMenuRef.current.classList.remove("show");
+
+  const [fetclass,setFetclass]=useState<ClassesInt[]>([
+    {
+      regNo:"",
+      className:"",
+      section:"",
+      status:"",
+      noOfStudent:0,
+      noOfSubjects:0,
+      session:"",
+      teacher:"",
+      students:"",
     }
-  };
+  ])
+  const [selectedClass, setSelectedClass] = useState<ClassesInt | null>(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  // State for form data in the edit modal
+  const [formData, setFormData] = useState({
+    className: "",
+    section: "",
+    noOfStudent: 0,
+    noOfSubjects: 0,
+    status: "",
+  });
   const route = all_routes
+
   const columns = [
     {
       title: "ID",
-      dataIndex: "id",
-      render: (text: string, record: any, index: number) => (
-        <>
-          <Link to="#" className="link-primary">
-            {record.id}
-          </Link>
-        </>
+      dataIndex: "regNo",
+      render: (text: string, record: any) => (
+        <Link to="#" className="link-primary">
+          {record.regNo}
+        </Link>
       ),
     },
-
     {
       title: "Class",
-      dataIndex: "class",
+      dataIndex: "className",
       sorter: (a: TableData, b: TableData) => a.class.length - b.class.length,
     },
     {
       title: "Section",
       dataIndex: "section",
-      sorter: (a: TableData, b: TableData) =>
-        a.section.length - b.section.length,
+      sorter: (a: TableData, b: TableData) => a.section.length - b.section.length,
     },
     {
       title: "No of Student",
-      dataIndex: "noOfStudents",
-      sorter: (a: TableData, b: TableData) =>
-        a.noOfStudents.length - b.noOfStudents.length,
+      dataIndex: "noOfStudent",
+      sorter: (a: TableData, b: TableData) => a.noOfStudents.length - b.noOfStudents.length,
     },
     {
       title: "No of Subjects",
       dataIndex: "noOfSubjects",
-      sorter: (a: TableData, b: TableData) =>
-        a.noOfSubjects.length - b.noOfSubjects.length,
+      sorter: (a: TableData, b: TableData) => a.noOfSubjects - b.noOfSubjects,
     },
     {
       title: "Status",
@@ -82,48 +94,124 @@ const Classes = () => {
     {
       title: "Action",
       dataIndex: "action",
-      render: () => (
-        <>
-          <div className="d-flex align-items-center">
-            <div className="dropdown">
-              <Link
-                to="#"
-                className="btn btn-white btn-icon btn-sm d-flex align-items-center justify-content-center rounded-circle p-0"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="ti ti-dots-vertical fs-14" />
-              </Link>
-              <ul className="dropdown-menu dropdown-menu-right p-3">
-                <li>
-                  <Link
-                    className="dropdown-item rounded-1"
-                    to="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#edit_class"
-                  >
-                    <i className="ti ti-edit-circle me-2" />
-                    Edit
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="dropdown-item rounded-1"
-                    to="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#delete-modal"
-                  >
-                    <i className="ti ti-trash-x me-2" />
-                    Delete
-                  </Link>
-                </li>
-              </ul>
-            </div>
+      render: (text: string, record: any) => (
+        <div className="d-flex align-items-center">
+          <div className="dropdown">
+            <Link
+              to="#"
+              className="btn btn-white btn-icon btn-sm d-flex align-items-center justify-content-center rounded-circle p-0"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i className="ti ti-dots-vertical fs-14" />
+            </Link>
+            <ul className="dropdown-menu dropdown-menu-right p-3">
+              <li>
+                <Link
+                  className="dropdown-item rounded-1"
+                  to="#"
+                  onClick={() => setSelectedClass(record)}
+                  data-bs-toggle="modal"
+                  data-bs-target="#edit_class"
+                >
+                  <i className="ti ti-edit-circle me-2" />
+                  Edit
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item rounded-1"
+                  to="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#delete-modal"
+                  onClick={() => {
+                    setSelectedClass(record);
+                    setIsDeleteModalOpen(true);}}
+                >
+                  <i className="ti ti-trash-x me-2" />
+                  Delete
+                </Link>
+              </li>
+            </ul>
           </div>
-        </>
+        </div>
       ),
     },
   ];
+
+  const fetchData = async () => {
+    try {
+      const res=await axios.get('http://localhost:6555/api/class')
+      const formattedData = res.data.map((item: any) => ({ ...item, key: item._id }));
+      setFetclass(formattedData)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() =>{
+    fetchData()
+    console.log(fetclass)
+  },[])
+  useEffect(() => {
+    if (selectedClass) {
+      setFormData({
+        className: selectedClass.className,
+        section: selectedClass.section,
+        noOfStudent: selectedClass.noOfStudent,
+        noOfSubjects: selectedClass.noOfSubjects,
+        status: selectedClass.status,
+      });
+    }
+  }, [selectedClass]);
+  const updateClass = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (selectedClass) {
+      try {
+        const res=await axios.put(
+          `http://localhost:6555/api/class/${selectedClass.key}`,
+          formData
+        );
+        const updatedClass = { ...res.data, key: res.data._id }; // Assuming response includes _id
+        setFetclass((prev) =>
+          prev.map((item) =>
+            item.key === selectedClass.key ? updatedClass : item
+          )
+        );        
+        console.log("handle Submit",formData,selectedClass)
+      } catch (error) {
+        console.log("Error updating class:", error);
+      }
+    }
+  };
+  const deleteClass = async (e:React.FormEvent)=>{
+    e.preventDefault();
+    if(selectedClass){
+      try {
+        const res=await axios.delete(`http://localhost:6555/api/class/${selectedClass.key}`);
+        setFetclass((prev) => prev.filter((item) => item.key !== selectedClass.key));
+      } catch (error) {
+        console.log("Error deleting class:", error);
+      }
+    }
+  }
+  const addClass = async (e:React.FormEvent)=>{
+    e.preventDefault();
+      try {
+        console.log(formData)
+        const res=await axios.post("http://localhost:6555/api/class",formData);
+        const newClass = { ...res.data, key: res.data._id };
+        setFetclass((prev) => [...prev, newClass]);
+        await fetchData();
+      } catch (error) {
+        console.log("Error deleting class:", error);
+    }
+  }
+  const handleApplyClick = () => {
+    if (dropdownMenuRef.current) {
+      dropdownMenuRef.current.classList.remove("show");
+    }
+  };
+
   return (
     <div>
       {/* Page Wrapper */}
@@ -148,7 +236,7 @@ const Classes = () => {
               </nav>
             </div>
             <div className="d-flex my-xl-auto right-content align-items-center flex-wrap">
-            <TooltipOption />
+              <TooltipOption />
               <div className="mb-2">
                 <Link
                   to="#"
@@ -181,8 +269,11 @@ const Classes = () => {
                     <i className="ti ti-filter me-2" />
                     Filter
                   </Link>
-                  <div className="dropdown-menu drop-width"  ref={dropdownMenuRef}>
-                    <form >
+                  <div
+                    className="dropdown-menu drop-width"
+                    ref={dropdownMenuRef}
+                  >
+                    <form>
                       <div className="d-flex align-items-center border-bottom p-3">
                         <h4>Filter</h4>
                       </div>
@@ -271,7 +362,7 @@ const Classes = () => {
             </div>
             <div className="card-body p-0 py-3">
               {/* Guardians List */}
-              <Table columns={columns} dataSource={data} Selection={true} />
+              <Table columns={columns} dataSource={fetclass} Selection={true} />
               {/* /Guardians List */}
             </div>
           </div>
@@ -295,13 +386,24 @@ const Classes = () => {
                   <i className="ti ti-x" />
                 </button>
               </div>
-              <form>
+              <form onSubmit={addClass}>
                 <div className="modal-body">
                   <div className="row">
                     <div className="col-md-12">
                       <div className="mb-3">
                         <label className="form-label">Class Name</label>
-                        <input type="text" className="form-control" />
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter Class Name"
+                          value={formData.className}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              className: e.target.value,
+                            })
+                          }
+                        />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">Section</label>
@@ -309,15 +411,43 @@ const Classes = () => {
                           className="select"
                           options={classSection}
                           defaultValue={classSection[0]}
+                          onChange={(option)=>{
+                            setFormData((prev)=>({
+                              ...prev,
+                              section:option?option.value: "A"
+                            }))
+                          }}
                         />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">No of Students</label>
-                        <input type="text" className="form-control" />
+                        <input
+                          type="number"
+                          className="form-control"
+                          placeholder="Enter no of Students"
+                          value={formData.noOfStudent}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              noOfStudent: parseInt(e.target.value) || 0,
+                            })
+                          }
+                        />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">No of Subjects</label>
-                        <input type="text" className="form-control" />
+                        <input
+                          type="number"
+                          className="form-control"
+                          placeholder="Enter no of Subjects"
+                          value={formData.noOfSubjects}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              noOfSubjects: parseInt(e.target.value) || 0,
+                            })
+                          }
+                        />
                       </div>
                       <div className="d-flex align-items-center justify-content-between">
                         <div className="status-title">
@@ -325,11 +455,19 @@ const Classes = () => {
                           <p>Change the Status by toggle </p>
                         </div>
                         <div className="form-check form-switch">
-                          <input
+                        <input
                             className="form-check-input"
                             type="checkbox"
                             role="switch"
-                            id="switch-sm"
+                            id="switch-sm2"
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                status: e.target.checked
+                                  ? "Active"
+                                  : "Inactive",
+                              })
+                            }
                           />
                         </div>
                       </div>
@@ -344,9 +482,9 @@ const Classes = () => {
                   >
                     Cancel
                   </Link>
-                  <Link to="#" className="btn btn-primary" data-bs-dismiss="modal">
+                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
                     Add Class
-                  </Link>
+                  </button>
                 </div>
               </form>
             </div>
@@ -368,7 +506,7 @@ const Classes = () => {
                   <i className="ti ti-x" />
                 </button>
               </div>
-              <form >
+              <form onSubmit={updateClass}>
                 <div className="modal-body">
                   <div className="row">
                     <div className="col-md-12">
@@ -378,7 +516,13 @@ const Classes = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Class Name"
-                          defaultValue="I"
+                          value={formData.className}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              className: e.target.value,
+                            })
+                          }
                         />
                       </div>
                       <div className="mb-3">
@@ -386,31 +530,49 @@ const Classes = () => {
                         <CommonSelect
                           className="select"
                           options={classSection}
-                          defaultValue={classSection[0]}
+                          defaultValue={classSection.find(sec=>sec.value===formData.section)}
+                          onChange={(option)=>{
+                            setFormData((prev)=>({
+                              ...prev,
+                              section:option?option.value: "A"
+                            }))
+                          }}
                         />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">No of Students</label>
                         <input
-                          type="text"
+                          type="number"
                           className="form-control"
                           placeholder="Enter no of Students"
-                          defaultValue={30}
+                          value={formData.noOfStudent}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              noOfStudent: parseInt(e.target.value) || 0,
+                            })
+                          }
                         />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">No of Subjects</label>
                         <input
-                          type="text"
+                          type="number"
                           className="form-control"
                           placeholder="Enter no of Subjects"
-                          // defaultValue={03}
+                          value={formData.noOfSubjects}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              noOfSubjects: parseInt(e.target.value) || 0,
+                            })
+                          }
                         />
                       </div>
                       <div className="d-flex align-items-center justify-content-between">
                         <div className="status-title">
                           <h5>Status</h5>
-                          <p>Change the Status by toggle </p>
+                          <p>Change the Status by toggle</p>
                         </div>
                         <div className="form-check form-switch">
                           <input
@@ -418,6 +580,15 @@ const Classes = () => {
                             type="checkbox"
                             role="switch"
                             id="switch-sm2"
+                            checked={formData.status === "Active"}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                status: e.target.checked
+                                  ? "Active"
+                                  : "Inactive",
+                              })
+                            }
                           />
                         </div>
                       </div>
@@ -432,9 +603,9 @@ const Classes = () => {
                   >
                     Cancel
                   </Link>
-                  <Link to="#"  className="btn btn-primary" data-bs-dismiss="modal">
+                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
                     Save Changes
-                  </Link>
+                  </button>
                 </div>
               </form>
             </div>
@@ -445,7 +616,7 @@ const Classes = () => {
         <div className="modal fade" id="delete-modal">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
-              <form >
+              <form onSubmit={deleteClass}>
                 <div className="modal-body text-center">
                   <span className="delete-icon">
                     <i className="ti ti-trash-x" />
@@ -463,10 +634,9 @@ const Classes = () => {
                     >
                       Cancel
                     </Link>
-                    <Link to="#" className="btn btn-danger" data-bs-dismiss="modal"
-                    >
-                      Yes, Delete
-                    </Link>
+                    <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
+                    Yes Delete
+                  </button>
                   </div>
                 </div>
               </form>
@@ -495,7 +665,7 @@ const Classes = () => {
                   <i className="ti ti-x" />
                 </button>
               </div>
-              <form >
+              <form>
                 <div className="modal-body">
                   <div className="row">
                     <div className="col-md-6">

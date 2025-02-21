@@ -9,6 +9,7 @@ import classRoute from "./routes/classRouter.js";
 import parentRoute from "./routes/parentRouter.js";
 import studentModel from "./models/student.js";
 import { faker } from "@faker-js/faker";
+import classModel from "./models/class.js";
 
 dotenv.config();
 const app = express();
@@ -48,6 +49,38 @@ const generateStudent = () => ({
   attendance: new mongoose.Types.ObjectId(), // Replace with valid Attendance ID if needed
   studentFee: new mongoose.Types.ObjectId(), // Replace with valid StudentFee ID if needed
 });
+const generateClasses = async () => {
+  try {
+    // Define session and sections
+    const session = "2024-25";
+    const sections = ["A", "B"];
+    const romanNumerals = ["I", "II", "III", "IV", "V"];
+
+    const classes = [];
+
+    for (let i = 0; i < romanNumerals.length; i++) {
+      for (const section of sections) {
+        classes.push({
+          session,
+          regNo: faker.string.alphanumeric(5).toUpperCase(),
+          className: `${romanNumerals[i]}`,
+          section,
+          status: "Active",
+          noOfStudent: 45, // Default value
+          noOfSubjects: 6, // Default value
+          teacher: [],
+          student: [],
+        });
+      }
+    }
+
+    // Insert classes into the database
+    await classModel.insertMany(classes);
+    console.log("Classes generated successfully!");
+  } catch (error) {
+    console.error("Error generating classes:", error);
+  }
+};
 mongoose
   .connect(MongoURL)
   .then(async () => {
@@ -56,7 +89,9 @@ mongoose
     });
     // const students = Array.from({ length: 10 }, generateStudent);
     // await studentModel.insertMany(students);
-    // console.log("done")
+    // generateClasses();
+    console.log("done")
+    
   })
   .catch((err) => {
     console.log(err);

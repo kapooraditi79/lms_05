@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createClass,
+  deleteClass,
   deleteClassByIdOrName,
   getAllClass,
   getClassByIdOrName,
@@ -21,6 +22,6 @@ router.get("/:id", getClassByIdOrName);
 router.put("/:id", updateClass);
 
 // Delete a specific class by ID
-router.delete("/:id", deleteClassByIdOrName);
+router.delete("/:id", deleteClass);
 
 export default router;
