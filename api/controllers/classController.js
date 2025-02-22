@@ -14,50 +14,51 @@ export const getAllClass = async (req, res) => {
   }
 };
 
-export const createClass =async (req,res) =>{
-    try {
-      const classExists = await Class.findOne({
-        className: req.body.className,
-      });
-      if (classExists) {
-        return res.status(400).json({ message: "Class already exists" });
-      } 
-      const newClass = new Class(req.body);
-      if(!newClass.status)newClass.status ="Inactive"
-      newClass.regNo = faker.string.alphanumeric(5).toUpperCase();
-      newClass.session="2024-25"
-      await newClass.save();
-      console.log("Created")
-      res.status(201).json(newClass);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
 export const createClass = async (req, res) => {
-  //validating if both session and classname are typed by user
-  // body("session").notEmpty().withMessage("session is required"),
-  // body("className").notEmpty().withMessage("className is required"),
-  // //withMessage is called only if the notEmpty() condition is not met
-
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
   try {
     const classExists = await Class.findOne({
       className: req.body.className,
-      session: req.body.session,
     });
     if (classExists) {
       return res.status(400).json({ message: "Class already exists" });
-    } else {
-      const newClass = new Class(req.body);
-      await newClass.save();
-      res.status(201).json(newClass);
     }
+    const newClass = new Class(req.body);
+    if (!newClass.status) newClass.status = "Inactive";
+    newClass.regNo = faker.string.alphanumeric(5).toUpperCase();
+    newClass.session = "2024-25";
+    await newClass.save();
+    console.log("Created");
+    res.status(201).json(newClass);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
+// export const createClass = async (req, res) => {
+//   //validating if both session and classname are typed by user
+//   // body("session").notEmpty().withMessage("session is required"),
+//   // body("className").notEmpty().withMessage("className is required"),
+//   // //withMessage is called only if the notEmpty() condition is not met
+
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     return res.status(400).json({ errors: errors.array() });
+//   }
+//   try {
+//     const classExists = await Class.findOne({
+//       className: req.body.className,
+//       session: req.body.session,
+//     });
+//     if (classExists) {
+//       return res.status(400).json({ message: "Class already exists" });
+//     } else {
+//       const newClass = new Class(req.body);
+//       await newClass.save();
+//       res.status(201).json(newClass);
+//     }
+//   } catch (error) {
+//     res.status(400).json({ message: error.message });
+//   }
+// };
 
 export const updateClass = async (req, res) => {
   try {
@@ -66,8 +67,9 @@ export const updateClass = async (req, res) => {
       req.body,
       { new: true }
     );
-    if (!updatedClass)return res.status(404).json({ message: "Class not found" });
-    else console.log("class updated")
+    if (!updatedClass)
+      return res.status(404).json({ message: "Class not found" });
+    else console.log("class updated");
     res.status(200).json(updatedClass);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -77,8 +79,9 @@ export const updateClass = async (req, res) => {
 export const deleteClass = async (req, res) => {
   try {
     const deletedClass = await Class.findByIdAndDelete(req.params.id);
-    if (!deletedClass)return res.status(404).json({ message: "Class not found" });
-    else console.log("Deleted class")
+    if (!deletedClass)
+      return res.status(404).json({ message: "Class not found" });
+    else console.log("Deleted class");
     res.status(200).json({ message: "Class deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -143,8 +146,6 @@ export const getClassByIdOrName = async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 };
-
-
 
 export const deleteClassByIdOrName = async function (req, res) {
   try {
