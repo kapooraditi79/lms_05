@@ -348,3 +348,16 @@ export interface Student {
   status: "Active" | "Inactive" | "" | string;
   profileImage: string;
 }
+
+export interface ClassesInt {
+  key?:any
+  regNo:string;
+  className:string;
+  section:string;
+  status:string;
+  noOfStudent:number;
+  noOfSubjects:number;
+  session?:string;
+  teacher?:any;
+  students?:any;
+}

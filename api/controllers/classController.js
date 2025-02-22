@@ -3,6 +3,7 @@ import Class from "../models/class.js";
 import { body, validationResult } from "express-validator";
 import Teacher from "../models/teacher.js";
 import Student from "../models/student.js";
+import { faker } from "@faker-js/faker";
 
 export const getAllClass = async (req, res) => {
   try {
@@ -13,16 +14,24 @@ export const getAllClass = async (req, res) => {
   }
 };
 
-// export const createClass = async (req, res) => {
-//   try {
-//     const newClass = new Class(req.body);
-//     await newClass.save();
-//     res.status(201).json(newClass);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// };
-
+export const createClass =async (req,res) =>{
+    try {
+      const classExists = await Class.findOne({
+        className: req.body.className,
+      });
+      if (classExists) {
+        return res.status(400).json({ message: "Class already exists" });
+      } 
+      const newClass = new Class(req.body);
+      if(!newClass.status)newClass.status ="Inactive"
+      newClass.regNo = faker.string.alphanumeric(5).toUpperCase();
+      newClass.session="2024-25"
+      await newClass.save();
+      console.log("Created")
+      res.status(201).json(newClass);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
 export const createClass = async (req, res) => {
   //validating if both session and classname are typed by user
   // body("session").notEmpty().withMessage("session is required"),
@@ -50,6 +59,31 @@ export const createClass = async (req, res) => {
   }
 };
 
+export const updateClass = async (req, res) => {
+  try {
+    const updatedClass = await Class.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (!updatedClass)return res.status(404).json({ message: "Class not found" });
+    else console.log("class updated")
+    res.status(200).json(updatedClass);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export const deleteClass = async (req, res) => {
+  try {
+    const deletedClass = await Class.findByIdAndDelete(req.params.id);
+    if (!deletedClass)return res.status(404).json({ message: "Class not found" });
+    else console.log("Deleted class")
+    res.status(200).json({ message: "Class deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 // export const getClassById = async (req, res) => {
 //   try {
 //     const classData = await Class.findById(req.params.id);
@@ -110,31 +144,7 @@ export const getClassByIdOrName = async function (req, res) {
   }
 };
 
-export const updateClass = async (req, res) => {
-  try {
-    const updatedClass = await Class.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    if (!updatedClass)
-      return res.status(404).json({ message: "Class not found" });
-    res.status(200).json(updatedClass);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
 
-// export const deleteClass = async (req, res) => {
-//   try {
-//     const deletedClass = await Class.findByIdAndDelete(req.params.id);
-//     if (!deletedClass)
-//       return res.status(404).json({ message: "Class not found" });
-//     res.status(200).json({ message: "Class deleted successfully" });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
 
 export const deleteClassByIdOrName = async function (req, res) {
   try {

@@ -6,9 +6,29 @@ const classSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    name: {
+    regNo:{
       type: String,
       required: true,
+    },
+    className: {
+      type: String,
+      required: true,
+    },
+    section:{
+      type:String,
+      required:true
+    },
+    status:{
+      type: String,
+      required: true,
+    },
+    noOfStudent:{
+      type:Number,
+      required:true
+    },
+    noOfSubjects:{
+      type:Number,
+      required:true
     },
     teacher: [
       {
@@ -22,14 +42,6 @@ const classSchema = new mongoose.Schema(
         ref: "student",
       },
     ],
-    // school: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "school",
-    // },
-    // feeStructure: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "feeStructure",
-    // },
   },
   { timestamps: true }
 );
