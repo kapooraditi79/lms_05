@@ -136,7 +136,7 @@ const Sidebar = () => {
                       alt="Profile"
                     />
                     <span className="text-dark ms-2 fw-normal">
-                      Global International
+                     Sector 144 Noida
                     </span>
                   </Link>
                 </li>
