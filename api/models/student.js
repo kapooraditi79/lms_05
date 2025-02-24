@@ -33,6 +33,10 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    joinedOn:{
+      type: String,
+      // required: true,
+    },
     status: { 
       type: String, enum: ["Active", "Inactive"], default: "Active" 
     },

@@ -80,6 +80,11 @@ const AddStudent = () => {
     try {
       const student=await axios.get(`http://localhost:6555/api/student/${regNo}`)
       console.log(student.data)
+      if (student.data.joinedOn) {
+        const date = dayjs(student.data.joinedOn,'DD-MM-YYYY',true);
+        console.log(date)
+        setDefaultDate(date.isValid() ? date : null);
+      }
       setStudent(student.data)
     } catch (error) {
       console.log(error)
@@ -88,19 +93,11 @@ const AddStudent = () => {
   useEffect(() => {
     console.log(regNo)
     if (regNo){
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-based, so we add 1
-      const day = String(today.getDate()).padStart(2, "0");
-      const formattedDate = `${month}-${day}-${year}`;
-      const defaultValue = dayjs(student.joinedOn);
+      fetchStudentbyId()
       setIsEdit(true)
       setOwner(["English"])
       setOwner1(["Medecine Name"])
       setOwner2(["Allergy","Skin Allergy"])
-      setDefaultDate(defaultValue)
-      console.log(formattedDate,11);
-      fetchStudentbyId()
     }else {
       setIsEdit(false)
       setDefaultDate(null)
