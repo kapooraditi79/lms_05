@@ -86,10 +86,10 @@ const Header = () => {
           onMouseLeave={onMouseLeave}
         >
           <Link to={routes.adminDashboard} className="logo logo-normal">
-            <ImageWithBasePath src="assets/img/logo.svg" alt="Logo" />
+            <ImageWithBasePath src="assets/img/logo.png" alt="Logo" />
           </Link>
           <Link to={routes.adminDashboard} className="logo-small">
-            <ImageWithBasePath src="assets/img/logo-small.svg" alt="Logo" />
+            <ImageWithBasePath src="assets/img/logo-small.png" alt="Logo" />
           </Link>
           <Link to={routes.adminDashboard} className="dark-logo">
             <ImageWithBasePath src="assets/img/logo-dark.svg" alt="Logo" />
@@ -115,23 +115,10 @@ const Header = () => {
           <div className="nav user-menu">
             {/* Search */}
             <div className="nav-item nav-search-inputs me-auto">
-              <div className="top-nav-search">
-                <Link to="#" className="responsive-search">
-                  <i className="fa fa-search" />
-                </Link>
-                <form action="#" className="dropdown">
-                  <div className="searchinputs" id="dropdownMenuClickable">
-                    <input type="text" placeholder="Search" />
-                    <div className="search-addon">
-                      <button type="submit">
-                        <i className="ti ti-command" />
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              
             </div>
             {/* /Search */}
+
             <div className="d-flex align-items-center">
               <div className="dropdown me-2">
                 <Link
@@ -164,149 +151,8 @@ const Header = () => {
                   </Link>
                 </div>
               </div>
-              <div className="pe-1 ms-1">
-                <div className="dropdown">
-                  <Link
-                    to="#"
-                    className="btn btn-outline-light bg-white btn-icon d-flex align-items-center me-1 p-2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <ImageWithBasePath
-                      src="assets/img/flags/us.png"
-                      alt="Language"
-                      className="img-fluid rounded-pill"
-                    />
-                  </Link>
-                  <div className="dropdown-menu dropdown-menu-right">
-                    <Link
-                      to="#"
-                      className="dropdown-item active d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/us.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      English
-                    </Link>
-                    <Link
-                      to="#"
-                      className="dropdown-item d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/fr.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      French
-                    </Link>
-                    <Link
-                      to="#"
-                      className="dropdown-item d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/es.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      Spanish
-                    </Link>
-                    <Link
-                      to="#"
-                      className="dropdown-item d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/de.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      German
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="pe-1">
-                <div className="dropdown">
-                  <Link
-                    to="#"
-                    className="btn btn-outline-light bg-white btn-icon me-1"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="ti ti-square-rounded-plus" />
-                  </Link>
-                  <div className="dropdown-menu dropdown-menu-right border shadow-sm dropdown-md">
-                    <div className="p-3 border-bottom">
-                      <h5>Add New</h5>
-                    </div>
-                    <div className="p-3 pb-0">
-                      <div className="row gx-2">
-                        <div className="col-6">
-                          <Link
-                            to={routes.addStudent}
-                            className="d-block bg-primary-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-primary rounded-circle">
-                                <i className="ti ti-school" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Students</p>
-                          </Link>
-                        </div>
-                        <div className="col-6">
-                          <Link
-                            to={routes.addTeacher}
-                            className="d-block bg-success-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-success rounded-circle">
-                                <i className="ti ti-users" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Teachers</p>
-                          </Link>
-                        </div>
-                        <div className="col-6">
-                          <Link
-                            to={routes.addStaff}
-                            className="d-block bg-warning-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg rounded-circle mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-warning rounded-circle">
-                                <i className="ti ti-users-group" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Staffs</p>
-                          </Link>
-                        </div>
-                        <div className="col-6">
-                          <Link
-                            to={routes.addInvoice}
-                            className="d-block bg-info-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-info rounded-circle">
-                                <i className="ti ti-license" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Invoice</p>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
+              
               <div className="pe-1">
                 {!location.pathname.includes("layout-dark") && (
                   <Link
@@ -325,6 +171,8 @@ const Header = () => {
                   </Link>
                 )}
               </div>
+
+
               <div
                 className={`pe-1 ${
                   notificationVisible ? "notification-item-show" : ""
@@ -487,23 +335,10 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="pe-1">
-                <Link
-                  to={routes.chat}
-                  className="btn btn-outline-light bg-white btn-icon position-relative me-1"
-                >
-                  <i className="ti ti-brand-hipchat" />
-                  <span className="chat-status-dot" />
-                </Link>
-              </div>
-              <div className="pe-1">
-                <Link
-                  to="#"
-                  className="btn btn-outline-light bg-white btn-icon me-1"
-                >
-                  <i className="ti ti-chart-bar" />
-                </Link>
-              </div>
+   
+
+
+              
               <div className="pe-1">
                 <Link
                   onClick={toggleFullscreen}
@@ -514,6 +349,8 @@ const Header = () => {
                   <i className="ti ti-maximize" />
                 </Link>
               </div>
+
+
               <div className="dropdown ms-1">
                 <Link
                   to="#"
@@ -571,6 +408,8 @@ const Header = () => {
             </div>
           </div>
         </div>
+
+
         {/* Mobile Menu */}
         <div className="dropdown mobile-user-menu">
           <Link
