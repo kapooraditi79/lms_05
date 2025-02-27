@@ -1,0 +1,29 @@
+For the "LaNeenos-Portal\src\feature-module\peoples\students\add-student\index.tsx"
+
+
+
+Visualizing the Flow:
+
+User Action: Navigates to /student/add-student (frontend route from all_routes).
+|
+React Router renders <AddStudent />.
+|
+Form Submission: User fills out the form and clicks "Add Student."
+|
+<Link> triggers handleSubmit → axios.post('http://localhost:6555/api/student/create', student).
+|
+Backend Response: Backend (createStudent) saves the student and responds with the new student data.
+|
+Frontend logs the response (console.log(res)) and navigates to /student/list.
+|
+Backend Setup: The /api/student/create endpoint is wired up in Express to the createStudent controller.
+
+
+
+"Admission Number" is regNo: In the frontend, the "Admission Number" input field is directly mapped to the regNo property of the student state. When the form is submitted, the value entered in "Admission Number" becomes the regNo in the backend.
+|
+"Roll Number" is rollNo: The "Roll Number" input field is mapped to the rollNo property, and it remains separate from regNo.
+|
+Backend Behavior: The backend enforces uniqueness for regNo across all students and for rollNo within a class, confirming they are distinct identifiers.
+
+

@@ -71,7 +71,7 @@ export interface TableData {
   planType: any;
   providerName: any;
   invoiceNumber: any;
-  method:string;
+  method: string;
   incomeName: any;
   attendance: any;
   notes: any;
@@ -243,52 +243,51 @@ export interface TableData {
   amount: any;
   invoiceNo: any;
   paymentMethod: any;
-  feesGroup:string;
-  feesCode:string;
-  present:string;
-  absent:string;
-  percentange:string;
-  absentPercentange:string;
-  feesType:string;
-  fineType:string;
-  fineAmount:string;
-  admNo:string;
-  lastDate:string;
-  student:string;
-  cardNo:string;
-  fname:string;
-  bookName:string;
-  bookNo:string;
-  publisher:string;
-  author:string;
-  rackNo:string;
-  qty:string;
-  available:string;
-  price:string;
-  postDate:string;
-  dateofIssue:string;
-  issueTo:string;
-  booksIssued:string;
-  bookReturned:string;
-  issueRemarks:string;
-  year:string;
-  coachName:string;
-  sports:string;
-  hostelName:string;
-  hostelType:string;
-  address:string;
-  inTake:string;
-  roomType:string;
-  routes:string;
-  pickupPoint:string;
-  vehicleNo:string;
-  gps:string;
-  chassisNo:string;
-  registrationNo:string;
-  madeofYear:string;
-  vehicleModel:string;
-  key:string;
-
+  feesGroup: string;
+  feesCode: string;
+  present: string;
+  absent: string;
+  percentange: string;
+  absentPercentange: string;
+  feesType: string;
+  fineType: string;
+  fineAmount: string;
+  admNo: string;
+  lastDate: string;
+  student: string;
+  cardNo: string;
+  fname: string;
+  bookName: string;
+  bookNo: string;
+  publisher: string;
+  author: string;
+  rackNo: string;
+  qty: string;
+  available: string;
+  price: string;
+  postDate: string;
+  dateofIssue: string;
+  issueTo: string;
+  booksIssued: string;
+  bookReturned: string;
+  issueRemarks: string;
+  year: string;
+  coachName: string;
+  sports: string;
+  hostelName: string;
+  hostelType: string;
+  address: string;
+  inTake: string;
+  roomType: string;
+  routes: string;
+  pickupPoint: string;
+  vehicleNo: string;
+  gps: string;
+  chassisNo: string;
+  registrationNo: string;
+  madeofYear: string;
+  vehicleModel: string;
+  key: string;
 }
 export interface status {
   text: string;
@@ -335,29 +334,30 @@ export interface AppState {
   mouseOverSidebar: string;
 }
 export interface Student {
-  session?:string;
-  firstName: string,
-  lastName:string,
-  regNo:string;
+  session?: string;
+  firstName: string;
+  lastName: string;
+  regNo: string;
   rollNo: string;
   gender: string;
   joinedOn: string;
-  class:string;
+  class: string;
   grade: string;
   section: string;
   status: "Active" | "Inactive" | "" | string;
   profileImage: string;
 }
+//this is imported to the add-student in
 
 export interface ClassesInt {
-  key?:any
-  regNo:string;
-  className:string;
-  section:string;
-  status:string;
-  noOfStudent:number;
-  noOfSubjects:number;
-  session?:string;
-  teacher?:any;
-  students?:any;
+  key?: any;
+  regNo: string;
+  className: string;
+  section: string;
+  status: string;
+  noOfStudent: number;
+  noOfSubjects: number;
+  session?: string;
+  teacher?: any;
+  students?: any;
 }

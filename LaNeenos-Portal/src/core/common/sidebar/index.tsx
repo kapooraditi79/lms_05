@@ -87,19 +87,40 @@ const Sidebar = () => {
     }
   }, [location, previousLocation, dispatch]);
 
+  // useEffect(() => {
+  //   setSubopen(localStorage.getItem("menuOpened"));
+  //   // Select all 'submenu' elements
+  //   const submenus = document.querySelectorAll(".submenu");
+  //   // Loop through each 'submenu'
+  //   submenus.forEach((submenu) => {
+  //     // Find all 'li' elements within the 'submenu'
+  //     const listItems = submenu.querySelectorAll("li");
+  //     submenu.classList.remove("active");
+  //     // Check if any 'li' has the 'active' class
+  //     listItems.forEach((item) => {
+  //       if (item.classList.contains("active")) {
+  //         // Add 'active' class to the 'submenu'
+  //         submenu.classList.add("active");
+  //         return;
+  //       }
+  //     });
+  //   });
+  // }, [Location.pathname]);
+
   useEffect(() => {
-    setSubopen(localStorage.getItem("menuOpened"));
-    // Select all 'submenu' elements
+    try {
+      const menuOpened = localStorage.getItem("menuOpened");
+      setSubopen(menuOpened);
+    } catch (error) {
+      console.error("Error accessing localStorage:", error);
+    }
+
     const submenus = document.querySelectorAll(".submenu");
-    // Loop through each 'submenu'
     submenus.forEach((submenu) => {
-      // Find all 'li' elements within the 'submenu'
       const listItems = submenu.querySelectorAll("li");
       submenu.classList.remove("active");
-      // Check if any 'li' has the 'active' class
       listItems.forEach((item) => {
         if (item.classList.contains("active")) {
-          // Add 'active' class to the 'submenu'
           submenu.classList.add("active");
           return;
         }
@@ -136,7 +157,7 @@ const Sidebar = () => {
                       alt="Profile"
                     />
                     <span className="text-dark ms-2 fw-normal">
-                     Sector 144 Noida
+                      Sector 144 Noida
                     </span>
                   </Link>
                 </li>

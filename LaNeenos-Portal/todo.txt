@@ -1,0 +1,10 @@
+have the students displayed in the "All students list" in students tab
+|
+make sure that students are getting fetched from their respective ids
+|
+get the mongodb connected right
+|
+make sure the update student tab is working fine
+|
+
+

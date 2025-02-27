@@ -1,0 +1,3 @@
+when the user is submitting the add-Student form with the reg_no[of an already existing student]
+|
+there is 

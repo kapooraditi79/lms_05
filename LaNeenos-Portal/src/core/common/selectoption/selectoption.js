@@ -1,106 +1,143 @@
-
-
 export const options1 = [
-  { value: 'Select a View', label: 'Select a View' },
-  { value: 'Contact View List', label: 'Contact View List' },
-  { value: 'Contact Location View', label: 'Contact Location View' }
+  { value: "Select a View", label: "Select a View" },
+  { value: "Contact View List", label: "Contact View List" },
+  { value: "Contact Location View", label: "Contact Location View" },
 ];
 export const optionssymbol = [
-  { value: 'Choose', label: 'Choose' },
-  { value: '$', label: '$' },
-  { value: '€', label: '€' }
+  { value: "Choose", label: "Choose" },
+  { value: "$", label: "$" },
+  { value: "€", label: "€" },
 ];
 export const duration = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Days', label: 'Days' },
-  { value: 'Month', label: 'Month' }
+  { value: "Choose", label: "Choose" },
+  { value: "Days", label: "Days" },
+  { value: "Month", label: "Month" },
 ];
 
 export const optionschoose = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Work', label: 'Work' },
-  { value: 'Home', label: 'Home' }
+  { value: "Choose", label: "Choose" },
+  { value: "Work", label: "Work" },
+  { value: "Home", label: "Home" },
 ];
 
 export const options = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'NovaWave LLC', label: 'NovaWave LLC' },
-  { value: 'SilverHawk', label: 'SilverHawk' },
-  { value: 'SummitPeak', label: 'SummitPeak' },
-  { value: 'RiverStone Ventur', label: 'RiverStone Ventur' },
-  { value: 'China', label: 'China' },
+  { value: "Choose", label: "Choose" },
+  { value: "NovaWave LLC", label: "NovaWave LLC" },
+  { value: "SilverHawk", label: "SilverHawk" },
+  { value: "SummitPeak", label: "SummitPeak" },
+  { value: "RiverStone Ventur", label: "RiverStone Ventur" },
+  { value: "China", label: "China" },
 ];
 export const clientList = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'NovaWave LLC', label: 'NovaWave LLC' },
-  { value: 'SilverHawk', label: 'SilverHawk' },
-  { value: 'HarborView', label: 'HarborView' },
+  { value: "Choose", label: "Choose" },
+  { value: "NovaWave LLC", label: "NovaWave LLC" },
+  { value: "SilverHawk", label: "SilverHawk" },
+  { value: "HarborView", label: "HarborView" },
 ];
 export const category = [
-  { value: 'Select', label: 'Select' },
-  { value: 'HarborView', label: 'HarborView' },
-  { value: 'LLC', label: 'LLC' },
+  { value: "Select", label: "Select" },
+  { value: "HarborView", label: "HarborView" },
+  { value: "LLC", label: "LLC" },
 ];
 export const projectTiming = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Hourly', label: 'Hourly' },
-  { value: 'Minutes', label: 'Minutes' },
+  { value: "Select", label: "Select" },
+  { value: "Hourly", label: "Hourly" },
+  { value: "Minutes", label: "Minutes" },
 ];
 
 export const optionsource = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Phone Calls', label: 'Phone Calls' },
-  { value: 'Social Media', label: 'Social Media' },
-  { value: 'Referral Sites', label: 'Referral Sites' },
-  { value: 'Web Analytics', label: 'Web Analytics' },
-  { value: 'Previous Purchases', label: 'Previous Purchases' },
+  { value: "Choose", label: "Choose" },
+  { value: "Phone Calls", label: "Phone Calls" },
+  { value: "Social Media", label: "Social Media" },
+  { value: "Referral Sites", label: "Referral Sites" },
+  { value: "Web Analytics", label: "Web Analytics" },
+  { value: "Previous Purchases", label: "Previous Purchases" },
 ];
 export const optionindustry = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Retail Industry', label: 'Retail Industry' },
-  { value: 'Banking', label: 'Banking' },
-  { value: 'Hotels', label: 'Hotels' },
-  { value: 'Financial Services', label: 'Financial Services' },
-  { value: 'Insurance', label: 'Insurance' },
+  { value: "Choose", label: "Choose" },
+  { value: "Retail Industry", label: "Retail Industry" },
+  { value: "Banking", label: "Banking" },
+  { value: "Hotels", label: "Hotels" },
+  { value: "Financial Services", label: "Financial Services" },
+  { value: "Insurance", label: "Insurance" },
 ];
 export const optiondeals = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Collins', label: 'Collins' },
-  { value: 'Konopelski', label: 'Konopelski' },
-  { value: 'Adams', label: 'Adams' },
-  { value: 'Schumm', label: 'Schumm' },
-  { value: 'Wisozk', label: 'Wisozk' },
+  { value: "Choose", label: "Choose" },
+  { value: "Collins", label: "Collins" },
+  { value: "Konopelski", label: "Konopelski" },
+  { value: "Adams", label: "Adams" },
+  { value: "Schumm", label: "Schumm" },
+  { value: "Wisozk", label: "Wisozk" },
 ];
 export const languageOptions = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'English', label: 'English' },
-  { value: 'Arabic', label: 'Arabic' },
-  { value: 'Chinese', label: 'Chinese' },
-  { value: 'Hindi', label: 'Hindi' },
+  { value: "Choose", label: "Choose" },
+  { value: "English", label: "English" },
+  { value: "Arabic", label: "Arabic" },
+  { value: "Chinese", label: "Chinese" },
+  { value: "Hindi", label: "Hindi" },
 ];
 export const optionsowner = [
-  { label: 'Jerald', value: 'Jerald', image: 'assets/img/profiles/avatar-14.jpg' },
-  { label: 'Sharon Roy', value: 'Sharon Roy', image: 'assets/img/profiles/avatar-20.jpg' },
-  { label: 'Vaughan', value: 'Vaughan', image: 'assets/img/profiles/avatar-21.jpg' },
-  { label: 'Jessica', value: 'Jessica', image: 'assets/img/profiles/avatar-23.jpg' },
-  { label: 'Carol Thomas', value: 'Carol Thomas', image: 'assets/img/profiles/avatar-16.jpg' }
+  {
+    label: "Jerald",
+    value: "Jerald",
+    image: "assets/img/profiles/avatar-14.jpg",
+  },
+  {
+    label: "Sharon Roy",
+    value: "Sharon Roy",
+    image: "assets/img/profiles/avatar-20.jpg",
+  },
+  {
+    label: "Vaughan",
+    value: "Vaughan",
+    image: "assets/img/profiles/avatar-21.jpg",
+  },
+  {
+    label: "Jessica",
+    value: "Jessica",
+    image: "assets/img/profiles/avatar-23.jpg",
+  },
+  {
+    label: "Carol Thomas",
+    value: "Carol Thomas",
+    image: "assets/img/profiles/avatar-16.jpg",
+  },
 ];
 export const optionsowner1 = [
-  { label: 'Darlee Robertson', value: 'Jerald', image: 'assets/img/profiles/avatar-19.jpg' },
-  { label: 'Sharon Roy', value: 'Sharon Roy', image: 'assets/img/profiles/avatar-20.jpg' },
-  { label: 'Vaughan', value: 'Vaughan', image: 'assets/img/profiles/avatar-21.jpg' },
-  { label: 'Jessica', value: 'Jessica', image: 'assets/img/profiles/avatar-23.jpg' },
-  { label: 'Carol Thomas', value: 'Carol Thomas', image: 'assets/img/profiles/avatar-16.jpg' }
+  {
+    label: "Darlee Robertson",
+    value: "Jerald",
+    image: "assets/img/profiles/avatar-19.jpg",
+  },
+  {
+    label: "Sharon Roy",
+    value: "Sharon Roy",
+    image: "assets/img/profiles/avatar-20.jpg",
+  },
+  {
+    label: "Vaughan",
+    value: "Vaughan",
+    image: "assets/img/profiles/avatar-21.jpg",
+  },
+  {
+    label: "Jessica",
+    value: "Jessica",
+    image: "assets/img/profiles/avatar-23.jpg",
+  },
+  {
+    label: "Carol Thomas",
+    value: "Carol Thomas",
+    image: "assets/img/profiles/avatar-16.jpg",
+  },
 ];
 
 export const countryoptions1 = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'India', label: 'India' },
-  { value: 'USA', label: 'USA' },
-  { value: 'France', label: 'France' },
-  { value: 'UK', label: 'UK' },
-  { value: 'UAE', label: 'UAE' },
-
+  { value: "Choose", label: "Choose" },
+  { value: "India", label: "India" },
+  { value: "USA", label: "USA" },
+  { value: "France", label: "France" },
+  { value: "UK", label: "UK" },
+  { value: "UAE", label: "UAE" },
 ];
 export const lastModified = [
   { value: "sortByDate", label: "Sort by Date" },
@@ -116,12 +153,12 @@ export const recent = [
   { value: "Last Modified by me", label: "Last Modified by me" },
 ];
 export const companyName = [
-  { value: 'choose', label: 'Choose' },
-  { value: 'novaWave', label: 'NovaWave LLC' },
-  { value: 'blueSky', label: 'BlueSky Industries' },
-  { value: 'silverHawk', label: 'SilverHawk' },
-  { value: 'summitPeak', label: 'SummitPeak' },
-  { value: 'riverStone', label: 'RiverStone Ventur' }
+  { value: "choose", label: "Choose" },
+  { value: "novaWave", label: "NovaWave LLC" },
+  { value: "blueSky", label: "BlueSky Industries" },
+  { value: "silverHawk", label: "SilverHawk" },
+  { value: "summitPeak", label: "SummitPeak" },
+  { value: "riverStone", label: "RiverStone Ventur" },
 ];
 
 export const initialSettings = {
@@ -156,161 +193,176 @@ export const initialSettings = {
   timePicker: false,
 };
 
-
-
 export const salestypelist = [
-  { value: 'sales', label: 'Sales' },
-  { value: 'marketing', label: 'Marketing' },
-  { value: 'calls', label: 'Calls' }
+  { value: "sales", label: "Sales" },
+  { value: "marketing", label: "Marketing" },
+  { value: "calls", label: "Calls" },
 ];
 export const project = [
-  { value: 'Devops Design', label: 'Devops Design' },
-  { value: 'MargrateDesign', label: 'MargrateDesign' },
-  { value: 'UI for Chat', label: 'UI for Chat' },
-  { value: 'Web Chat', label: 'Web Chat' },
+  { value: "Devops Design", label: "Devops Design" },
+  { value: "MargrateDesign", label: "MargrateDesign" },
+  { value: "UI for Chat", label: "UI for Chat" },
+  { value: "Web Chat", label: "Web Chat" },
 ];
 export const defaultValues = [
-  { value: 'Devops Design', label: 'Devops Design' },
-  { value: 'MargrateDesign', label: 'MargrateDesign' },
-  { value: 'UI for Chat', label: 'UI for Chat' }
+  { value: "Devops Design", label: "Devops Design" },
+  { value: "MargrateDesign", label: "MargrateDesign" },
+  { value: "UI for Chat", label: "UI for Chat" },
 ];
 
 export const socialMedia = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Google', label: 'Google' },
-  { value: 'Social Media', label: 'Social Media' },
+  { value: "Select", label: "Select" },
+  { value: "Google", label: "Google" },
+  { value: "Social Media", label: "Social Media" },
 ];
 export const priorityList = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Highy', label: 'Highy' },
-  { value: 'Low', label: 'Low' },
-  { value: 'Medium', label: 'Medium' },
+  { value: "Select", label: "Select" },
+  { value: "Highy", label: "Highy" },
+  { value: "Low", label: "Low" },
+  { value: "Medium", label: "Medium" },
 ];
 export const tagInputValues = [
-  { value: 'Devops Design', label: 'Devops Design' },
-  { value: 'MargrateDesign', label: 'MargrateDesign' },
+  { value: "Devops Design", label: "Devops Design" },
+  { value: "MargrateDesign", label: "MargrateDesign" },
 ];
 export const projectType = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Mobile App', label: 'Mobile App' },
-  { value: 'Meeting', label: 'Meeting' },
+  { value: "Choose", label: "Choose" },
+  { value: "Mobile App", label: "Mobile App" },
+  { value: "Meeting", label: "Meeting" },
 ];
 export const status1 = [
-  { value: 'Choose', label: 'Choose' },
-  { value: 'Mobile App', label: 'Mobile App' },
-  { value: 'Meeting', label: 'Meeting' },
+  { value: "Choose", label: "Choose" },
+  { value: "Mobile App", label: "Mobile App" },
+  { value: "Meeting", label: "Meeting" },
 ];
 
 export const ascendingandDecending = [
-  { value: 'Sort By Date', label: 'Sort By Date' },
-  { value: 'Ascending', label: 'Ascending' },
-  { value: 'Descending', label: 'Descending' },
+  { value: "Sort By Date", label: "Sort By Date" },
+  { value: "Ascending", label: "Ascending" },
+  { value: "Descending", label: "Descending" },
 ];
 export const statusList = [
-  { value: 'Busy', label: 'Busy' },
-  { value: 'Unavailable', label: 'Unavailable' },
-  { value: 'No Answer', label: 'No Answer' },
-  { value: 'Wrong Number', label: 'Wrong Number' },
-  { value: 'Left Voice Message', label: 'Left Voice Message' },
-  { value: 'Moving Forward', label: 'Moving Forward' },
+  { value: "Busy", label: "Busy" },
+  { value: "Unavailable", label: "Unavailable" },
+  { value: "No Answer", label: "No Answer" },
+  { value: "Wrong Number", label: "Wrong Number" },
+  { value: "Left Voice Message", label: "Left Voice Message" },
+  { value: "Moving Forward", label: "Moving Forward" },
 ];
 export const owner = [
-  { value: 'Jerald', label: 'Jerald' },
-  { value: 'Guillory', label: 'Guillory' },
-  { value: 'Jami', label: 'Jami' },
-  { value: 'Theresa', label: 'Theresa' },
-  { value: ' Espinosa', label: ' Espinosa' },
+  { value: "Jerald", label: "Jerald" },
+  { value: "Guillory", label: "Guillory" },
+  { value: "Jami", label: "Jami" },
+  { value: "Theresa", label: "Theresa" },
+  { value: " Espinosa", label: " Espinosa" },
 ];
 export const assigneeOption = [
-  { value: 'Darlee Robertson', label: 'Darlee Robertson', image: 'assets/img/profiles/avatar-19.jpg' },
-  { value: 'Sharon Roy', label: 'Sharon Roy', image: 'assets/img/profiles/avatar-20.jpg' },
-  { value: 'Vaughan', label: 'Vaughan', image: 'assets/img/profiles/avatar-21.jpg' },
-  { value: 'Jessica', label: 'Jessica', image: 'assets/img/profiles/avatar-23.jpg' },
-  { value: 'Carol Thomas', label: 'Carol Thomas', image: 'assets/img/profiles/avatar-16.jpg' }
+  {
+    value: "Darlee Robertson",
+    label: "Darlee Robertson",
+    image: "assets/img/profiles/avatar-19.jpg",
+  },
+  {
+    value: "Sharon Roy",
+    label: "Sharon Roy",
+    image: "assets/img/profiles/avatar-20.jpg",
+  },
+  {
+    value: "Vaughan",
+    label: "Vaughan",
+    image: "assets/img/profiles/avatar-21.jpg",
+  },
+  {
+    value: "Jessica",
+    label: "Jessica",
+    image: "assets/img/profiles/avatar-23.jpg",
+  },
+  {
+    value: "Carol Thomas",
+    label: "Carol Thomas",
+    image: "assets/img/profiles/avatar-16.jpg",
+  },
 ];
 export const ratings = [
-  { value: '', label: 'Choose(1-5)' },
-  { value: '1', label: '1' },
-  { value: '2', label: '2' },
-  { value: '3', label: '3' },
-  { value: '4', label: '4' },
-  { value: '5', label: '5' },
+  { value: "", label: "Choose(1-5)" },
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+  { value: "5", label: "5" },
 ];
 export const priority = [
-  { value: '', label: 'Choose' },
-  { value: 'Low', label: 'Low' },
-  { value: 'Medium', label: 'Medium' },
-  { value: 'High', label: 'High' },
-]
+  { value: "", label: "Choose" },
+  { value: "Low", label: "Low" },
+  { value: "Medium", label: "Medium" },
+  { value: "High", label: "High" },
+];
 export const statusOption = [
-  { value: 'Closed', label: 'Closed' },
-  { value: 'Open', label: 'Open' },
-  { value: 'Pending', label: 'Pending' },
-  { value: 'Resolved', label: 'Resolved' },
-  { value: 'Reopened', label: 'Reopened' },
-  { value: 'Inprogress', label: 'Inprogress' },
+  { value: "Closed", label: "Closed" },
+  { value: "Open", label: "Open" },
+  { value: "Pending", label: "Pending" },
+  { value: "Resolved", label: "Resolved" },
+  { value: "Reopened", label: "Reopened" },
+  { value: "Inprogress", label: "Inprogress" },
 ];
 export const newselectOption = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Truelysell', label: 'Truelysell' },
-  { value: 'Dreamsports', label: 'Dreamsports' },
-  { value: 'Doccure', label: 'Doccure' },
-  { value: 'Kofejob', label: 'Kofejob' },
+  { value: "Select", label: "Select" },
+  { value: "Truelysell", label: "Truelysell" },
+  { value: "Dreamsports", label: "Dreamsports" },
+  { value: "Doccure", label: "Doccure" },
+  { value: "Kofejob", label: "Kofejob" },
 ];
 export const releatdselectOption = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Truelysell', label: 'Truelysell' },
-  { value: 'Dreamsports', label: 'Dreamsports' },
-  { value: 'Doccure', label: 'Doccure' },
-  { value: 'Kofejob', label: 'Kofejob' },
-  { value: 'Best@laundry', label: 'Best@laundry' },
+  { value: "Select", label: "Select" },
+  { value: "Truelysell", label: "Truelysell" },
+  { value: "Dreamsports", label: "Dreamsports" },
+  { value: "Doccure", label: "Doccure" },
+  { value: "Kofejob", label: "Kofejob" },
+  { value: "Best@laundry", label: "Best@laundry" },
 ];
 export const editreleatdselectOption = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Deals', label: 'Deals' },
-  { value: 'Truelysell', label: 'Truelysell' },
-  { value: 'Dreamsports', label: 'Dreamsports' },
-  { value: 'Doccure', label: 'Doccure' },
-  { value: 'Kofejob', label: 'Kofejob' },
-  { value: 'Best@laundry', label: 'Best@laundry' },
+  { value: "Select", label: "Select" },
+  { value: "Deals", label: "Deals" },
+  { value: "Truelysell", label: "Truelysell" },
+  { value: "Dreamsports", label: "Dreamsports" },
+  { value: "Doccure", label: "Doccure" },
+  { value: "Kofejob", label: "Kofejob" },
+  { value: "Best@laundry", label: "Best@laundry" },
 ];
 export const dealsselectOption = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Collins', label: 'Collins' },
-  { value: 'Best@laundry', label: 'Best@laundry' },
-  { value: 'Dreamsports', label: 'Dreamsports' },
-  { value: 'Doccure', label: 'Doccure' },
-  { value: 'Kofejob', label: 'Kofejob' },
-
+  { value: "Select", label: "Select" },
+  { value: "Collins", label: "Collins" },
+  { value: "Best@laundry", label: "Best@laundry" },
+  { value: "Dreamsports", label: "Dreamsports" },
+  { value: "Doccure", label: "Doccure" },
+  { value: "Kofejob", label: "Kofejob" },
 ];
 export const currency = [
-  { value: '$', label: '$' },
-  { value: 'Low', label: 'Low' },
-  { value: 'Medium', label: 'Medium' },
-  { value: 'High', label: 'High' },
-]
+  { value: "$", label: "$" },
+  { value: "Low", label: "Low" },
+  { value: "Medium", label: "Medium" },
+  { value: "High", label: "High" },
+];
 export const contracts = [
-  { value: 'Contracts under Seal', label: 'Contracts under Seal' },
-  { value: 'Meeting', label: 'Meeting' },
-]
+  { value: "Contracts under Seal", label: "Contracts under Seal" },
+  { value: "Meeting", label: "Meeting" },
+];
 export const client = [
-  { value: 'Harbor View', label: 'Harbor View' },
-  { value: 'CoastalStar Co.', label: 'CoastalStar Co.' },
-  { value: 'RiverStone Ventur.', label: 'RiverStone Ventur.' },
-]
+  { value: "Harbor View", label: "Harbor View" },
+  { value: "CoastalStar Co.", label: "CoastalStar Co." },
+  { value: "RiverStone Ventur.", label: "RiverStone Ventur." },
+];
 export const contracttype = [
-  { value: 'Contracts under Seal', label: 'Contracts under Seal' },
-  { value: 'Contract', label: 'Contract' },
-  { value: 'RiverStone Ventur', label: 'RiverStone Ventur' },
-]
+  { value: "Contracts under Seal", label: "Contracts under Seal" },
+  { value: "Contract", label: "Contract" },
+  { value: "RiverStone Ventur", label: "RiverStone Ventur" },
+];
 export const currencyselect = [
-  { value: 'Choose', label: 'Choose' },
-  { value: '$', label: '$' },
-  { value: 'INR', label: 'INR' },
-  { value: 'Euro', label: 'Euro' },
-]
-
-
+  { value: "Choose", label: "Choose" },
+  { value: "$", label: "$" },
+  { value: "INR", label: "INR" },
+  { value: "Euro", label: "Euro" },
+];
 
 // preskool
 
@@ -394,7 +446,6 @@ export const roomNO = [
   { value: "21", label: "21" },
   { value: "223", label: "223" },
   { value: "12", label: "12" },
-
 ];
 export const paymentType = [
   { value: "Paytm", label: "Paytm" },
@@ -458,6 +509,7 @@ export const allSubject = [
   { value: "Spanish", label: "Spanish" },
 ];
 export const academicYear = [
+  { value: "February 2025/26", label: "February 2025/26" },
   { value: "June 2024/25", label: "June 2024/25" },
   { value: "June 2023/24", label: "June 2023/24" },
   { value: "June 2022/23", label: "June 2022/23" },
@@ -512,27 +564,24 @@ export const startTime = [
 export const classselect = [
   { value: "Select", label: "Select" },
   { value: "Class", label: "Class" },
-
 ];
-export const empty = [
-  { value: "Select", label: "Select" },
-];
+export const empty = [{ value: "Select", label: "Select" }];
 export const activeList = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Active', label: 'Active' },
-  { value: 'Inactive', label: 'Inactive' },
+  { value: "Select", label: "Select" },
+  { value: "Active", label: "Active" },
+  { value: "Inactive", label: "Inactive" },
 ];
 export const capacitycount = [
-  { value: 'Select', label: 'Select' },
-  { value: '50', label: '50' },
-  { value: '40', label: '40' },
-  { value: '60', label: '60' },
+  { value: "Select", label: "Select" },
+  { value: "50", label: "50" },
+  { value: "40", label: "40" },
+  { value: "60", label: "60" },
 ];
 export const weak = [
-  { value: 'Select', label: 'Select' },
-  { value: 'Monday', label: 'Monday' },
-  { value: 'Tuesday', label: 'Tuesday' },
-  { value: 'Wednesday', label: 'Wednesday' },
+  { value: "Select", label: "Select" },
+  { value: "Monday", label: "Monday" },
+  { value: "Tuesday", label: "Tuesday" },
+  { value: "Wednesday", label: "Wednesday" },
 ];
 export const durationOne = [
   { value: "Select", label: "Select" },
@@ -654,17 +703,14 @@ export const routinename = [
   { value: "Erickson", label: "Erickson" },
   { value: "Mori", label: "Mori" },
   { value: "Joseph", label: "Joseph" },
-
 ];
 export const Shift = [
   { value: "Morning", label: "Morning" },
   { value: "Afternoon", label: "Afternoon" },
-
 ];
 export const promotion = [
   { value: "No Promotion", label: "No Promotion" },
   { value: "Promote to IV", label: "Promote to IV" },
-
 ];
 
 export const teacher = [
@@ -746,7 +792,7 @@ export const ids = [
   { value: "FG80482", label: "FG80482" },
   { value: "FG80481", label: "FG80481" },
   { value: "FG80480", label: "FG80480" },
-]
+];
 export const Role = [
   { value: "Select", label: "Select" },
   { value: "Student", label: "Student" },
@@ -881,112 +927,109 @@ export const productName = [
 ];
 
 export const members = [
-  { value: 'Collins', label: 'Collins' },
-  { value: 'Konopelski', label: 'Konopelski' },
-  { value: 'Adams', label: 'Adams' },
-  { value: 'Schumm', label: 'Schumm' },
-  { value: 'Wisozk', label: 'Wisozk' },
+  { value: "Collins", label: "Collins" },
+  { value: "Konopelski", label: "Konopelski" },
+  { value: "Adams", label: "Adams" },
+  { value: "Schumm", label: "Schumm" },
+  { value: "Wisozk", label: "Wisozk" },
 ];
 export const cardNo = [
-  { value: '501', label: '501' },
-  { value: '502', label: '502' },
-  { value: '503', label: '503' },
-  { value: '504', label: '504' },
+  { value: "501", label: "501" },
+  { value: "502", label: "502" },
+  { value: "503", label: "503" },
+  { value: "504", label: "504" },
 ];
 export const moreFilter = [
-  { value: 'Members', label: 'Members' },
-  { value: 'Card No', label: 'Card No' },
-  { value: 'Email', label: 'Email' },
-  { value: 'Mobile', label: 'Mobile' },
-  { value: 'Date Of join', label: 'Date Of join' },
+  { value: "Members", label: "Members" },
+  { value: "Card No", label: "Card No" },
+  { value: "Email", label: "Email" },
+  { value: "Mobile", label: "Mobile" },
+  { value: "Date Of join", label: "Date Of join" },
 ];
 export const moreFilterBook = [
-  { value: 'ID', label: 'ID' },
-  { value: 'Book Name', label: 'Book Name' },
-  { value: 'Book No', label: 'Book No' },
-  { value: 'Publisher', label: 'Publisher' },
-  { value: 'Subject', label: 'Subject' },
-  { value: 'Rack No', label: 'Rack No' },
+  { value: "ID", label: "ID" },
+  { value: "Book Name", label: "Book Name" },
+  { value: "Book No", label: "Book No" },
+  { value: "Publisher", label: "Publisher" },
+  { value: "Subject", label: "Subject" },
+  { value: "Rack No", label: "Rack No" },
 ];
 export const moreFilterBookIssue = [
-  { value: 'ID', label: 'ID' },
-  { value: 'Date of Issue', label: 'Date of Issue' },
-  { value: 'Due Date', label: 'Due Date' },
-  { value: 'Issue To', label: 'Issue To' },
-  { value: 'Books Issued', label: 'Books Issued' },
-  { value: 'Book ReturnedID', label: 'Book Returned' },
-  { value: 'Issue Remarks', label: 'Issue Remarks' },
-
+  { value: "ID", label: "ID" },
+  { value: "Date of Issue", label: "Date of Issue" },
+  { value: "Due Date", label: "Due Date" },
+  { value: "Issue To", label: "Issue To" },
+  { value: "Books Issued", label: "Books Issued" },
+  { value: "Book ReturnedID", label: "Book Returned" },
+  { value: "Issue Remarks", label: "Issue Remarks" },
 ];
 export const playersName = [
-  { value: 'Francis', label: 'Francis' },
-  { value: 'Cheryl', label: 'Cheryl' },
-  { value: 'Daniel', label: 'Daniel' },
-  { value: 'Irene', label: 'Irene' },
-  { value: 'Keith', label: 'Keith' },
+  { value: "Francis", label: "Francis" },
+  { value: "Cheryl", label: "Cheryl" },
+  { value: "Daniel", label: "Daniel" },
+  { value: "Irene", label: "Irene" },
+  { value: "Keith", label: "Keith" },
 ];
 export const coachName = [
-  { value: 'Thomas', label: 'Thomas' },
-  { value: 'Georgia', label: 'Georgia' },
-  { value: 'Nicholas', label: 'Nicholas' },
-  { value: 'Sandra', label: 'Sandra' },
+  { value: "Thomas", label: "Thomas" },
+  { value: "Georgia", label: "Georgia" },
+  { value: "Nicholas", label: "Nicholas" },
+  { value: "Sandra", label: "Sandra" },
 ];
 export const hostelName = [
-  { value: '1', label: 'Phoenix Residence' },
-  { value: '2', label: 'Tranquil Haven' },
-  { value: '3', label: 'Radiant Towers' },
-  { value: '4', label: 'Nova Nest' },
-  { value: '5', label: 'Vista Villa' },
+  { value: "1", label: "Phoenix Residence" },
+  { value: "2", label: "Tranquil Haven" },
+  { value: "3", label: "Radiant Towers" },
+  { value: "4", label: "Nova Nest" },
+  { value: "5", label: "Vista Villa" },
 ];
 export const HostelroomNo = [
-  { value: '1', label: 'A1' },
-  { value: '2', label: 'A2' },
-  { value: '3', label: 'A3' },
-  { value: '4', label: 'B1' },
-  { value: '5', label: 'B2' },
+  { value: "1", label: "A1" },
+  { value: "2", label: "A2" },
+  { value: "3", label: "A3" },
+  { value: "4", label: "B1" },
+  { value: "5", label: "B2" },
 ];
 export const hostelType = [
-  { value: '1', label: 'Boys' },
-  { value: '2', label: 'Girls' },
+  { value: "1", label: "Boys" },
+  { value: "2", label: "Girls" },
 ];
 export const moreFilterHostel = [
-  { value: '1', label: 'Hostel Name' },
-  { value: '2', label: 'Hostel Type' },
-  { value: '3', label: 'Address' },
-  { value: '4', label: 'Intake' },
-  { value: '5', label: 'Description' },
+  { value: "1", label: "Hostel Name" },
+  { value: "2", label: "Hostel Type" },
+  { value: "3", label: "Address" },
+  { value: "4", label: "Intake" },
+  { value: "5", label: "Description" },
 ];
 export const moreFilterRoom = [
-  { value: '1', label: 'Room No' },
-  { value: '2', label: 'Hostel Name' },
-  { value: '3', label: 'Room Type' },
-  { value: '4', label: 'No of Bed' },
-  { value: '5', label: 'Cost per Bed' },
+  { value: "1", label: "Room No" },
+  { value: "2", label: "Hostel Name" },
+  { value: "3", label: "Room Type" },
+  { value: "4", label: "No of Bed" },
+  { value: "5", label: "Cost per Bed" },
 ];
 export const roomtype = [
-  { value: '1', label: 'One Bed' },
-  { value: '2', label: 'One Bed AC' },
-  { value: '3', label: 'Two Bed' },
-  { value: '4', label: 'Two Bed AC' }
+  { value: "1", label: "One Bed" },
+  { value: "2", label: "One Bed AC" },
+  { value: "3", label: "Two Bed" },
+  { value: "4", label: "Two Bed AC" },
 ];
 export const bedcount = [
-  { value: '1', label: '1' },
-  { value: '2', label: '2' },
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
 ];
 export const moreFilterSport = [
-  { value: 'ID', label: 'ID' },
-  { value: 'Name', label: 'Name' },
-  { value: 'Coach', label: 'Coach' },
-  { value: 'Started Year', label: 'Started Year' },
-  { value: 'Action', label: 'Action' },
+  { value: "ID", label: "ID" },
+  { value: "Name", label: "Name" },
+  { value: "Coach", label: "Coach" },
+  { value: "Started Year", label: "Started Year" },
+  { value: "Action", label: "Action" },
 ];
 export const sports = [
-  { value: 'Cricket', label: 'Cricket' },
-  { value: 'Throwball', label: 'Throwball' },
-  { value: 'Football', label: 'Football' },
-  { value: 'Tennis', label: 'Tennis' },
-  
-
+  { value: "Cricket", label: "Cricket" },
+  { value: "Throwball", label: "Throwball" },
+  { value: "Football", label: "Football" },
+  { value: "Tennis", label: "Tennis" },
 ];
 export const membershipplan = [
   { value: "Select", label: "Select" },
@@ -1018,179 +1061,188 @@ export const sections = [
   { value: "All Sections", label: "All Sections" },
   { value: "A", label: "A" },
   { value: "B", label: "B" },
-]
+];
 export const eventCategory = [
   { value: "Select", label: "Select" },
   { value: "Celebration", label: "Celebration" },
   { value: "Training", label: "Training" },
   { value: "Meeting", label: "Meeting" },
   { value: "Holidays", label: "Holidays" },
-]
+];
 
 export const codeLanguage = [
   { value: "Select", label: "Select" },
   { value: "en", label: "en" },
   { value: "ar", label: "ar" },
   { value: "zh", label: "zh" },
-]
+];
 
 export const customeFields = [
   { value: "Select", label: "Select" },
   { value: "Expense", label: "Expense" },
   { value: "Inventory", label: "Inventory" },
-]
+];
 
 export const editcustomeFields = [
   { value: "Select", label: "Select" },
   { value: "Expense", label: "Expense" },
   { value: "Inventory", label: "Inventory" },
-]
+];
 
 export const otpSet = [
   { value: "SMS", label: "SMS" },
   { value: "Email", label: "Email" },
-]
+];
 
 export const otpSetNum = [
   { value: "4", label: "4" },
   { value: "5", label: "5" },
   { value: "6", label: "6" },
-]
+];
 
 export const otpSetMin = [
   { value: "5 mins", label: "5 mins" },
   { value: "2 mins", label: "2 mins" },
   { value: "10 mins", label: "10 mins" },
-]
+];
 
 export const gdprCookies = [
   { value: "Right", label: "Right" },
   { value: "Left", label: "Left" },
   { value: "Center", label: "Center" },
-]
+];
 export const page = [
   { value: "Select", label: "Select" },
   { value: "Students", label: "Students" },
   { value: "Teachers", label: "Teachers" },
   { value: "Parents", label: "Parents" },
-]
+];
 export const questions = [
   { value: "Select", label: "Select" },
-  { value: "How do I reset my password?", label: "How do I reset my password?" },
-  { value: "Can I volunteer at the school?", label: "Can I volunteer at the school?" },
-  { value: "What are the school's hours of operation?", label: "What are the school's hours of operation?" },
-]
+  {
+    value: "How do I reset my password?",
+    label: "How do I reset my password?",
+  },
+  {
+    value: "Can I volunteer at the school?",
+    label: "Can I volunteer at the school?",
+  },
+  {
+    value: "What are the school's hours of operation?",
+    label: "What are the school's hours of operation?",
+  },
+];
 export const category3 = [
   { value: "Select", label: "Select" },
   { value: "Account", label: "Account" },
   { value: "Support", label: "Support" },
   { value: "Finance", label: "Finance" },
-]
+];
 export const city = [
   { value: "Select", label: "Select" },
   { value: "Los Angeles", label: "Los Angeles" },
   { value: "New York City", label: "New York City" },
   { value: "Houston", label: "Houston" },
-]
+];
 export const state = [
   { value: "Select", label: "Select" },
   { value: "California", label: "California" },
   { value: "New York", label: "New York" },
   { value: "Texas", label: "Texas" },
-]
+];
 export const country = [
   { value: "Select", label: "Select" },
   { value: "United States", label: "United States" },
   { value: "Germany", label: "Germany" },
   { value: "Canada", label: "Canada" },
   { value: "Australia", label: "Australia" },
-]
+];
 export const code = [
   { value: "Select", label: "Select" },
   { value: "US", label: "US" },
   { value: "CA", label: "CA" },
   { value: "UK", label: "UK" },
-]
+];
 export const category4 = [
   { value: "Select", label: "Select" },
   { value: "Education", label: "Education" },
   { value: "Clear Goals", label: "Clear Goals" },
   { value: "Advice", label: "Advice" },
-]
+];
 export const author = [
   { value: "Select", label: "Select" },
   { value: "Jordan", label: "Jordan" },
   { value: "Rubiaana", label: "Rubiaana" },
   { value: "Daniel", label: "Daniel" },
-]
+];
 export const tags = [
   { value: "Select", label: "Select" },
   { value: "Guide", label: "Guide" },
   { value: "Development", label: "Development" },
   { value: "Education", label: "Education" },
   { value: "Sports", label: "Sports" },
-]
+];
 export const publish = [
   { value: "Unpublish", label: "Unpublish" },
   { value: "Publish", label: "Publish" },
-]
+];
 export const date = [
   { value: "Select", label: "Select" },
   { value: "25 May 2024", label: "25 May 2024" },
   { value: "15 May 2024", label: "15 May 2024" },
   { value: "27 May 2024", label: "27 May 2024" },
-]
+];
 export const assigned = [
   { value: "Janet", label: "Janet" },
   { value: "Joann", label: "Joann" },
   { value: "Gifford", label: "Gifford" },
-]
+];
 export const ticketDate = [
   { value: "22 May 2024", label: "22 May 2024" },
   { value: "23 May 2024", label: "23 May 2024" },
   { value: "24 May 2024", label: "24 May 2024" },
-]
+];
 export const markAs = [
   { value: "Mark as Public", label: "Mark as Public" },
   { value: "Mark as Private", label: "Mark as Private" },
-]
+];
 export const internetCategory = [
   { value: "Internet Issue", label: "Internet Issue" },
   { value: "Redistribute", label: "Redistribute" },
   { value: "Computer", label: "Computer" },
   { value: "Complaint", label: "Complaint" },
-]
+];
 export const ticketStatus = [
   { value: "Open", label: "Open" },
   { value: "Closed", label: "Closed" },
   { value: "Medium", label: "Medium" },
-]
+];
 export const routesList = [
   { value: "1", label: "Seattle" },
   { value: "2", label: "Brooklyn Central" },
   { value: "3", label: "Rochester" },
   { value: "4", label: "Kansas City" },
   { value: "5", label: "Brooklyn North" },
-]
+];
 export const driverName = [
   { value: "1", label: "Thomas" },
   { value: "2", label: "Mary" },
   { value: "3", label: "Michael" },
   { value: "4", label: "Jessie" },
   { value: "5", label: "Robert" },
-]
+];
 export const GPSDevice = [
   { value: "1", label: "GPS3254789541" },
   { value: "2", label: "GPS1478545214" },
   { value: "3", label: "GPS4579454785" },
   { value: "4", label: "GPS7899456689" },
-]
+];
 export const AttendanceTypeList = [
   { value: "1", label: "Present" },
   { value: "2", label: "Half Day" },
   { value: "3", label: "Absent" },
   { value: "4", label: "Holiday" },
-]
+];
 export const driverFilter3 = [
   { value: "1", label: "ID" },
   { value: "2", label: "Route" },
@@ -1198,7 +1250,7 @@ export const driverFilter3 = [
   { value: "4", label: "Vehicle" },
   { value: "5", label: "Driver" },
   { value: "6", label: "Status" },
-]
+];
 export const driverFilter = [
   { value: "1", label: "ID" },
   { value: "2", label: "Driver" },
@@ -1206,7 +1258,7 @@ export const driverFilter = [
   { value: "4", label: "Driver License No" },
   { value: "5", label: "Address" },
   { value: "6", label: "Status" },
-]
+];
 export const driverFilter2 = [
   { value: "1", label: "ID" },
   { value: "2", label: "Vehicle No" },
@@ -1214,32 +1266,50 @@ export const driverFilter2 = [
   { value: "4", label: "Made of Year" },
   { value: "5", label: "Registration No" },
   { value: "6", label: "Status" },
-]
+];
 export const vehicleModel = [
   { value: "1", label: "Scania" },
   { value: "2", label: "Mini Bus" },
   { value: "3", label: "Kinsmart " },
   { value: "4", label: "Single deck" },
-]
+];
 export const PickupPoint2 = [
   { value: "1", label: "2603 Wood Duck Drive Marquette, MI" },
   { value: "2", label: "3521 Harvest Lane Kansas City, MO " },
   { value: "3", label: "4025 Khale Street, Folly Beach, SC" },
   { value: "4", label: "2261 Sweetwood Drive, Denver, CO " },
   { value: "5", label: "3341 Palmer Road, Columbus, OH" },
-]
+];
 export const contactMess = [
-  { value: "Reminder: Staff meeting tomorrow.", label: "Reminder: Staff meeting tomorrow." },
-  { value: "Sure, let's discuss it in class.", label: "Sure, let's discuss it in class." },
-  { value: "Requesting a meeting for next week.", label: "Requesting a meeting for next week." },
-]
+  {
+    value: "Reminder: Staff meeting tomorrow.",
+    label: "Reminder: Staff meeting tomorrow.",
+  },
+  {
+    value: "Sure, let's discuss it in class.",
+    label: "Sure, let's discuss it in class.",
+  },
+  {
+    value: "Requesting a meeting for next week.",
+    label: "Requesting a meeting for next week.",
+  },
+];
 export const contactMessOne = [
-  { value: "Reminder: Staff meeting tomorrow.", label: "Reminder: Staff meeting tomorrow." },
-  { value: "Sure, let's discuss it in class.", label: "Sure, let's discuss it in class." },
-  { value: "Requesting a meeting for next week.", label: "Requesting a meeting for next week." },
-]
+  {
+    value: "Reminder: Staff meeting tomorrow.",
+    label: "Reminder: Staff meeting tomorrow.",
+  },
+  {
+    value: "Sure, let's discuss it in class.",
+    label: "Sure, let's discuss it in class.",
+  },
+  {
+    value: "Requesting a meeting for next week.",
+    label: "Requesting a meeting for next week.",
+  },
+];
 export const studentsnumber = [
   { value: "30", label: "30" },
   { value: "35", label: "35" },
   { value: "40", label: "40" },
-]
+];

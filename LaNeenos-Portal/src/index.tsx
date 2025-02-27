@@ -19,6 +19,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+//console.log("Can access localStorage?", !!window.localStorage);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
