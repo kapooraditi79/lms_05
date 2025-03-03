@@ -128,21 +128,19 @@ const AddStudent = () => {
       console.log(error);
     }
   };
-  // useEffect(() => {
-  //   console.log(regNo);
-  //   if (regNo) {
-  //     fetchStudentbyId();
-  //     setIsEdit(true);
-  //     setOwner(["English"]);
-  //     setOwner1(["Medecine Name"]);
-  //     setOwner2(["Allergy", "Skin Allergy"]);
-  //   } else {
-  //     setIsEdit(false);
-  //     setDefaultDate(null);
-  //   }
-  // }, []);
-
-  //What is the purpose of the above code?
+  useEffect(() => {
+    console.log(regNo);
+    if (regNo) {
+      fetchStudentbyId();
+      setIsEdit(true);
+      setOwner(["English"]);
+      setOwner1(["Medecine Name"]);
+      setOwner2(["Allergy", "Skin Allergy"]);
+    } else {
+      setIsEdit(false);
+      setDefaultDate(null);
+    }
+  }, []);
 
   return (
     <>
