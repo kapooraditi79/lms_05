@@ -8,7 +8,7 @@ import StudentModals from "../studentModals";
 import Table from "../../../../core/common/dataTable/index";
 import PredefinedDateRanges from "../../../../core/common/datePicker";
 import {
-  allClass,
+  studentClass,
   allSection,
   gender,
   names,
@@ -286,8 +286,8 @@ const StudentList = () => {
                               <label className="form-label">Class</label>
                               <CommonSelect
                                 className="select"
-                                options={allClass}
-                                defaultValue={allClass[0]}
+                                options={studentClass}
+                                defaultValue={studentClass[0]}
                               />
                             </div>
                           </div>

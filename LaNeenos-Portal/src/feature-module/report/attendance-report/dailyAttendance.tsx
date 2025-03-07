@@ -5,18 +5,14 @@ import TooltipOption from "../../../core/common/tooltipOption";
 import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import Table from "../../../core/common/dataTable/index";
-import {
-
-  date,
-
-} from "../../../core/common/selectoption/selectoption";
+import { date } from "../../../core/common/selectoption/selectoption";
 
 import { TableData } from "../../../core/data/interface";
 import { dailyAttendanceData } from "../../../core/data/json/dailyAttendanceData";
 
 const DailyAttendance = () => {
   const routes = all_routes;
- 
+
   const dropdownMenuRef = useRef<HTMLDivElement | null>(null);
   const handleApplyClick = () => {
     if (dropdownMenuRef.current) {
@@ -34,12 +30,14 @@ const DailyAttendance = () => {
     {
       title: " Section",
       dataIndex: "section",
-      sorter: (a: TableData, b: TableData) => a.section.length - b.section.length,
+      sorter: (a: TableData, b: TableData) =>
+        a.section.length - b.section.length,
     },
     {
       title: " Total Present",
       dataIndex: "present",
-      sorter: (a: TableData, b: TableData) => a.present.length - b.present.length,
+      sorter: (a: TableData, b: TableData) =>
+        a.present.length - b.present.length,
     },
     {
       title: " Total Absent",
@@ -49,15 +47,15 @@ const DailyAttendance = () => {
     {
       title: " Present %",
       dataIndex: "percentange",
-      sorter: (a: TableData, b: TableData) => a.percentange.length - b.percentange.length,
+      sorter: (a: TableData, b: TableData) =>
+        a.percentange.length - b.percentange.length,
     },
     {
       title: " Absent %",
       dataIndex: "percentange",
-      sorter: (a: TableData, b: TableData) => a.absentPercentange.length - b.absentPercentange.length,
+      sorter: (a: TableData, b: TableData) =>
+        a.absentPercentange.length - b.absentPercentange.length,
     },
-
-   
   ];
   return (
     <>
@@ -77,7 +75,7 @@ const DailyAttendance = () => {
                     <Link to="#">Report</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
-                  Daily Attendance
+                    Daily Attendance
                   </li>
                 </ol>
               </nav>
@@ -120,12 +118,14 @@ const DailyAttendance = () => {
                   <Link to={routes.attendanceReport}>Attendance Report</Link>
                 </li>
                 <li>
-                  <Link to={routes.studentAttendanceType} >
+                  <Link to={routes.studentAttendanceType}>
                     Students Attendance Type
                   </Link>
                 </li>
                 <li>
-                  <Link to={routes.dailyAttendance} className="active">Daily Attendance</Link>
+                  <Link to={routes.dailyAttendance} className="active">
+                    Daily Attendance
+                  </Link>
                 </li>
                 <li>
                   <Link to={routes.studentDayWise}>Student Day Wise</Link>
@@ -147,7 +147,7 @@ const DailyAttendance = () => {
             {/* /List Tab */}
           </div>
           {/* /Filter Section */}
-         
+
           {/* Attendance List */}
           <div className="card">
             <div className="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
@@ -179,7 +179,9 @@ const DailyAttendance = () => {
                         <div className="row">
                           <div className="col-md-12">
                             <div className="mb-3">
-                              <label className="form-label">Attendance Date</label>
+                              <label className="form-label">
+                                Attendance Date
+                              </label>
 
                               <CommonSelect
                                 className="select"
@@ -188,7 +190,6 @@ const DailyAttendance = () => {
                               />
                             </div>
                           </div>
-                          
                         </div>
                       </div>
                       <div className="p-3 d-flex align-items-center justify-content-end">

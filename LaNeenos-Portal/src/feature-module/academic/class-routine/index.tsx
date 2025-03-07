@@ -4,7 +4,7 @@ import Table from "../../../core/common/dataTable/index";
 import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import {
-  allClass,
+  studentClass,
   classSection,
   count,
   routinename,
@@ -28,11 +28,11 @@ const ClassRoutine = () => {
     const modalElement = document.getElementById("modal_datepicker");
     return modalElement ? modalElement : document.body; // Fallback to document.body if modalElement is null
   };
-  const getModalContainer3= () => {
+  const getModalContainer3 = () => {
     const modalElement = document.getElementById("modal_datepicker");
     return modalElement ? modalElement : document.body; // Fallback to document.body if modalElement is null
   };
-  const getModalContainer4= () => {
+  const getModalContainer4 = () => {
     const modalElement = document.getElementById("modal_datepicker");
     return modalElement ? modalElement : document.body; // Fallback to document.body if modalElement is null
   };
@@ -42,7 +42,7 @@ const ClassRoutine = () => {
       dropdownMenuRef.current.classList.remove("show");
     }
   };
-  const route = all_routes
+  const route = all_routes;
   const columns = [
     {
       title: "ID",
@@ -165,7 +165,7 @@ const ClassRoutine = () => {
                 </nav>
               </div>
               <div className="d-flex my-xl-auto right-content align-items-center flex-wrap">
-              <TooltipOption />
+                <TooltipOption />
                 <div className="mb-2">
                   <Link
                     to="#"
@@ -198,8 +198,11 @@ const ClassRoutine = () => {
                       <i className="ti ti-filter me-2" />
                       Filter
                     </Link>
-                    <div className="dropdown-menu drop-width"  ref={dropdownMenuRef}>
-                      <form >
+                    <div
+                      className="dropdown-menu drop-width"
+                      ref={dropdownMenuRef}
+                    >
+                      <form>
                         <div className="d-flex align-items-center border-bottom p-3">
                           <h4>Filter</h4>
                         </div>
@@ -211,8 +214,8 @@ const ClassRoutine = () => {
 
                                 <CommonSelect
                                   className="select"
-                                  options={allClass}
-                                  defaultValue={allClass[0]}
+                                  options={studentClass}
+                                  defaultValue={studentClass[0]}
                                 />
                               </div>
                             </div>
@@ -335,7 +338,7 @@ const ClassRoutine = () => {
                   <i className="ti ti-x" />
                 </button>
               </div>
-              <form >
+              <form>
                 <div className="modal-body">
                   <div className="row">
                     <div className="col-md-12">
@@ -352,8 +355,8 @@ const ClassRoutine = () => {
                         <label className="form-label">Class</label>
                         <CommonSelect
                           className="select"
-                          options={allClass}
-                          defaultValue={allClass[0]}
+                          options={studentClass}
+                          defaultValue={studentClass[0]}
                         />
                       </div>
                       <div className="mb-3">
@@ -437,7 +440,11 @@ const ClassRoutine = () => {
                   >
                     Cancel
                   </Link>
-                  <Link to="#" className="btn btn-primary" data-bs-dismiss="modal">
+                  <Link
+                    to="#"
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
                     Add Class Routine
                   </Link>
                 </div>
@@ -461,17 +468,25 @@ const ClassRoutine = () => {
                   <i className="ti ti-x" />
                 </button>
               </div>
-              <form >
+              <form>
                 <div className="modal-body">
                   <div className="row">
                     <div className="col-md-12">
                       <div className="mb-3">
                         <label className="form-label">Teacher</label>
-                        <CommonSelect className="select" options={teacher} defaultValue={teacher[2]}/>
+                        <CommonSelect
+                          className="select"
+                          options={teacher}
+                          defaultValue={teacher[2]}
+                        />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">Class</label>
-                        <CommonSelect className="select" options={allClass} defaultValue={allClass[2]}/>
+                        <CommonSelect
+                          className="select"
+                          options={studentClass}
+                          defaultValue={studentClass[2]}
+                        />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">Section</label>
@@ -490,7 +505,7 @@ const ClassRoutine = () => {
                           <div className="mb-3">
                             <label className="form-label">Start Time</label>
                             <div className="date-pic">
-                            <TimePicker
+                              <TimePicker
                                 getPopupContainer={getModalContainer3}
                                 use12Hours
                                 placeholder="Choose"
@@ -507,7 +522,7 @@ const ClassRoutine = () => {
                           <div className="mb-3">
                             <label className="form-label">End Time</label>
                             <div className="date-pic">
-                            <TimePicker
+                              <TimePicker
                                 getPopupContainer={getModalContainer4}
                                 use12Hours
                                 placeholder="Choose"
@@ -550,7 +565,11 @@ const ClassRoutine = () => {
                   >
                     Cancel
                   </Link>
-                  <Link to="#" className="btn btn-primary" data-bs-dismiss="modal">
+                  <Link
+                    to="#"
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
                     Save Changes
                   </Link>
                 </div>
@@ -563,7 +582,7 @@ const ClassRoutine = () => {
         <div className="modal fade" id="delete-modal">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
-              <form >
+              <form>
                 <div className="modal-body text-center">
                   <span className="delete-icon">
                     <i className="ti ti-trash-x" />
@@ -581,7 +600,11 @@ const ClassRoutine = () => {
                     >
                       Cancel
                     </Link>
-                    <Link to="#" className="btn btn-danger" data-bs-dismiss="modal">
+                    <Link
+                      to="#"
+                      className="btn btn-danger"
+                      data-bs-dismiss="modal"
+                    >
                       Yes, Delete
                     </Link>
                   </div>

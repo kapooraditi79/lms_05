@@ -333,19 +333,33 @@ export interface DeleteRequestInterface {
 export interface AppState {
   mouseOverSidebar: string;
 }
+
+export interface ParentData {
+  fatherName: string;
+  fatherPhone: string;
+  fatherEmail: string;
+  fatherImage?: string;
+  motherName: string;
+  motherPhone: string;
+  motherEmail: string;
+  motherImage?: string;
+}
+
 export interface Student {
-  session?: string;
+  session: string;
   firstName: string;
   lastName: string;
   regNo: string;
   rollNo: string;
-  gender: string;
+  gender: "male" | "female" | "other" | "";
+  dob?: Date;
   joinedOn: string;
-  class: string;
-  grade: string;
+  studentClass: string;
+  grade?: string;
   section: string;
   status: "Active" | "Inactive" | "" | string;
-  profileImage: string;
+  profileImage?: string;
+  parentData: ParentData;
 }
 //this is imported to the add-student in
 

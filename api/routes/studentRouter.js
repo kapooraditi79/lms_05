@@ -15,10 +15,10 @@ router.get("/", getAllStudents);
 // Create a new Student or Add a new student
 router.post("/create", createStudent);
 
-// Get a student with ID
+// Get a student with regNo
 router.get("/:regNo", getStudentById);
 
-// Edit a student with ID
+// Edit a student with regNo
 router.put("/:regNo", updateStudent);
 
 // Search for a student based on the filter

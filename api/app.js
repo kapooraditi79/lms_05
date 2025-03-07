@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import methodOverride from "method-override";
 import studentRoute from "./routes/studentRouter.js";
 import classRoute from "./routes/classRouter.js";
-import parentRoute from "./routes/parentRouter.js";
+// import parentRoute from "./routes/parentRouter.js";
 import studentModel from "./models/student.js";
 import { faker } from "@faker-js/faker";
 import classModel from "./models/class.js";
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/student", studentRoute);
 app.use("/api/class", classRoute);
-app.use("/api/parent", parentRoute);
+// app.use("/api/parent", parentRoute);
 
 app.get("/", (req, res) => {
   res.send("hehehehe");

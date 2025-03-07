@@ -373,8 +373,10 @@ export const names = [
   { value: "Marilyn", label: "Marilyn" },
 ];
 export const gender = [
-  { value: "Male", label: "Male" },
-  { value: "Female", label: "Female" },
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
+  { value: "other", label: "Other" },
+  { value: "", label: "Select Gender" },
 ];
 export const status = [
   { value: "Active", label: "Active" },
@@ -496,7 +498,7 @@ export const leaveType = [
   { value: "Casual Leave", label: "Casual Leave" },
   { value: "Maternity Leave", label: "Maternity Leave" },
 ];
-export const allClass = [
+export const studentClass = [
   { value: "I", label: "I" },
   { value: "II", label: "II" },
   { value: "III", label: "III" },

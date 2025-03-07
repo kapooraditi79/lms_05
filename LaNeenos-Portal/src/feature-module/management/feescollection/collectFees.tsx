@@ -6,7 +6,7 @@ import CommonSelect from "../../../core/common/commonSelect";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {
   AdmissionNo,
-  allClass,
+  studentClass,
   allSection,
   amount,
   DueDate,
@@ -233,8 +233,8 @@ const CollectFees = () => {
                               <label className="form-label">Class</label>
                               <CommonSelect
                                 className="select"
-                                options={allClass}
-                                defaultValue={allClass[0]}
+                                options={studentClass}
+                                defaultValue={studentClass[0]}
                               />
                             </div>
                           </div>

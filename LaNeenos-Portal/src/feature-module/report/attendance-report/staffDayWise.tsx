@@ -6,7 +6,7 @@ import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import Table from "../../../core/common/dataTable/index";
 import {
-  allClass,
+  studentClass,
   allSection,
   date,
 } from "../../../core/common/selectoption/selectoption";
@@ -60,21 +60,23 @@ const StaffDayWise = () => {
       sorter: (a: TableData, b: TableData) => a.name.length - b.name.length,
     },
     {
-        title: " Department",
-        dataIndex: "department",
-        sorter: (a: TableData, b: TableData) => a.department.length - b.department.length,
-      },
+      title: " Department",
+      dataIndex: "department",
+      sorter: (a: TableData, b: TableData) =>
+        a.department.length - b.department.length,
+    },
     {
-        title: " Role",
-        dataIndex: "role",
-        sorter: (a: TableData, b: TableData) => a.role.length - b.role.length,
-      },
+      title: " Role",
+      dataIndex: "role",
+      sorter: (a: TableData, b: TableData) => a.role.length - b.role.length,
+    },
     {
       title: " Attendance",
       dataIndex: "attendance",
       render: (text: string, record: any) => (
         <span className={`${record.class} d-inline-flex align-items-center`}>
-          <i className="ti ti-circle-filled fs-5 me-1"></i>{text}
+          <i className="ti ti-circle-filled fs-5 me-1"></i>
+          {text}
         </span>
       ),
       sorter: (a: TableData, b: TableData) =>
@@ -99,7 +101,7 @@ const StaffDayWise = () => {
                     <Link to="#">Report</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
-                  Staff Day Wise Report
+                    Staff Day Wise Report
                   </li>
                 </ol>
               </nav>
@@ -150,9 +152,7 @@ const StaffDayWise = () => {
                   <Link to={routes.dailyAttendance}>Daily Attendance</Link>
                 </li>
                 <li>
-                  <Link to={routes.studentDayWise}>
-                    Student Day Wise
-                  </Link>
+                  <Link to={routes.studentDayWise}>Student Day Wise</Link>
                 </li>
                 <li>
                   <Link to={routes.teacherDayWise}>Teacher Day Wise</Link>
@@ -161,7 +161,9 @@ const StaffDayWise = () => {
                   <Link to={routes.teacherReport}>Teacher Report</Link>
                 </li>
                 <li>
-                  <Link to={routes.staffDayWise} className="active">Staff Day Wise</Link>
+                  <Link to={routes.staffDayWise} className="active">
+                    Staff Day Wise
+                  </Link>
                 </li>
                 <li>
                   <Link to={routes.staffReport}>Staff Report</Link>
@@ -207,7 +209,7 @@ const StaffDayWise = () => {
 
                               <CommonSelect
                                 className="select"
-                                options={allClass}
+                                options={studentClass}
                                 defaultValue={undefined}
                               />
                             </div>

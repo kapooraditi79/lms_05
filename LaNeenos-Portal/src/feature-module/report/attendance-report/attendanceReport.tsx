@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+  import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { all_routes } from "../../router/all_routes";
 import TooltipOption from "../../../core/common/tooltipOption";
@@ -6,7 +6,7 @@ import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import Table from "../../../core/common/dataTable/index";
 import {
-  allClass,
+  studentClass,
   allSection,
   gender,
   names,
@@ -697,7 +697,7 @@ const AttendanceReport = () => {
 
                               <CommonSelect
                                 className="select"
-                                options={allClass}
+                                options={studentClass}
                                 defaultValue={undefined}
                               />
                             </div>

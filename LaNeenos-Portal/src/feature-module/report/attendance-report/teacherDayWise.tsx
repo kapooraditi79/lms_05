@@ -6,7 +6,7 @@ import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import Table from "../../../core/common/dataTable/index";
 import {
-  allClass,
+  studentClass,
   allSection,
   date,
 } from "../../../core/common/selectoption/selectoption";
@@ -60,16 +60,18 @@ const TeacherDayWise = () => {
       sorter: (a: TableData, b: TableData) => a.name.length - b.name.length,
     },
     {
-        title: " Subject",
-        dataIndex: "subject",
-        sorter: (a: TableData, b: TableData) => a.subject.length - b.subject.length,
-      },
+      title: " Subject",
+      dataIndex: "subject",
+      sorter: (a: TableData, b: TableData) =>
+        a.subject.length - b.subject.length,
+    },
     {
       title: " Attendance",
       dataIndex: "attendance",
       render: (text: string, record: any) => (
         <span className={`${record.class} d-inline-flex align-items-center`}>
-          <i className="ti ti-circle-filled fs-5 me-1"></i>{text}
+          <i className="ti ti-circle-filled fs-5 me-1"></i>
+          {text}
         </span>
       ),
       sorter: (a: TableData, b: TableData) =>
@@ -94,7 +96,7 @@ const TeacherDayWise = () => {
                     <Link to="#">Report</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
-                  Teacher Day Wise Report
+                    Teacher Day Wise Report
                   </li>
                 </ol>
               </nav>
@@ -145,12 +147,12 @@ const TeacherDayWise = () => {
                   <Link to={routes.dailyAttendance}>Daily Attendance</Link>
                 </li>
                 <li>
-                  <Link to={routes.studentDayWise}>
-                    Student Day Wise
-                  </Link>
+                  <Link to={routes.studentDayWise}>Student Day Wise</Link>
                 </li>
                 <li>
-                  <Link to={routes.teacherDayWise} className="active">Teacher Day Wise</Link>
+                  <Link to={routes.teacherDayWise} className="active">
+                    Teacher Day Wise
+                  </Link>
                 </li>
                 <li>
                   <Link to={routes.teacherReport}>Teacher Report</Link>
@@ -202,7 +204,7 @@ const TeacherDayWise = () => {
 
                               <CommonSelect
                                 className="select"
-                                options={allClass}
+                                options={studentClass}
                                 defaultValue={undefined}
                               />
                             </div>

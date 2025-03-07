@@ -1,9 +1,21 @@
 import mongoose, { model } from "mongoose";
 
+const parentDataSchema = new mongoose.Schema({
+  fatherName: { type: String, required: true },
+  fatherPhone: { type: String, required: true },
+  fatherEmail: { type: String, required: true },
+  motherName: { type: String, required: true },
+  motherPhone: { type: String, required: true },
+  motherEmail: { type: String, required: true },
+  fatherImage: { type: String, required: false },
+  motherImage: { type: String, required: false },
+});
+
 const studentSchema = new mongoose.Schema(
   {
     session: {
       type: String,
+      required: true,
     },
     firstName: {
       type: String,
@@ -13,37 +25,40 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    regNo:{
+    regNo: {
       type: String,
       required: true,
     },
-    rollNo:{
+    rollNo: {
       type: String,
       required: true,
     },
-    gender:{
+    gender: {
+      type: String,
+      enum: ["male", "female", "other"],
+      required: true,
+    },
+    studentClass: {
       type: String,
       required: true,
     },
-    class:{
+    section: {
       type: String,
       required: true,
     },
-    section:{
-      type: String,
-      required: true,
-    },
-    joinedOn:{
+    joinedOn: {
       type: String,
       // required: true,
     },
-    status: { 
-      type: String, enum: ["Active", "Inactive"], default: "Active" 
+    status: {
+      type: String,
+      enum: ["Active", "Inactive"],
+      default: "Active",
     },
-    grade:{
+    grade: {
       type: String,
     },
-    profileImage:{
+    profileImage: {
       type: String,
       // required: true,
     },
@@ -55,10 +70,7 @@ const studentSchema = new mongoose.Schema(
       type: Date,
       // required: true,
     },
-    parentName: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "parent",
-    },
+    parentData: parentDataSchema,
     aadhar_number: {
       type: String,
     },

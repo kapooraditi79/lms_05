@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { all_routes } from "../../../router/all_routes";
 import CommonSelect from "../../../../core/common/commonSelect";
 import {
-  allClass,
+  studentClass,
   names,
   status,
 } from "../../../../core/common/selectoption/selectoption";
@@ -255,8 +255,8 @@ const TeacherList = () => {
                               <label className="form-label">Class</label>
                               <CommonSelect
                                 className="select"
-                                options={allClass}
-                                defaultValue={allClass[0]}
+                                options={studentClass}
+                                defaultValue={studentClass[0]}
                               />
                             </div>
                           </div>

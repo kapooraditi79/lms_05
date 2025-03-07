@@ -5,14 +5,13 @@ import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { all_routes } from "../../../router/all_routes";
 import {
- 
   Contract,
   Hostel,
   Marital,
   PickupPoint,
   Shift,
   VehicleNumber,
-  allClass,
+  studentClass,
   allSubject,
   bloodGroup,
   gender,
@@ -116,10 +115,7 @@ const TeacherForm = () => {
                                     multiple
                                   />
                                 </div>
-                                <Link
-                                  to="#"
-                                  className="btn btn-primary mb-3"
-                                >
+                                <Link to="#" className="btn btn-primary mb-3">
                                   Remove
                                 </Link>
                               </div>
@@ -162,8 +158,10 @@ const TeacherForm = () => {
                             <label className="form-label">Class</label>
                             <CommonSelect
                               className="select"
-                              options={allClass}
-                              defaultValue={isEdit ? allClass[0] : undefined}
+                              options={studentClass}
+                              defaultValue={
+                                isEdit ? studentClass[0] : undefined
+                              }
                             />
                           </div>
                         </div>
@@ -265,24 +263,28 @@ const TeacherForm = () => {
                           <div className="mb-3">
                             <label className="form-label">Date of Birth</label>
                             <div className="input-icon position-relative">
-                              {isEdit? <DatePicker
-                                className="form-control datetimepicker"
-                                format={{
-                                  format: "DD-MM-YYYY",
-                                  type: "mask",
-                                }}
-                                value={defaultDate}
-                                placeholder="Select Date"
-                              /> : <DatePicker
-                              className="form-control datetimepicker"
-                              format={{
-                                format: "DD-MM-YYYY",
-                                type: "mask",
-                              }}
-                              defaultValue=""
-                              placeholder="Select Date"
-                            />}
-                              
+                              {isEdit ? (
+                                <DatePicker
+                                  className="form-control datetimepicker"
+                                  format={{
+                                    format: "DD-MM-YYYY",
+                                    type: "mask",
+                                  }}
+                                  value={defaultDate}
+                                  placeholder="Select Date"
+                                />
+                              ) : (
+                                <DatePicker
+                                  className="form-control datetimepicker"
+                                  format={{
+                                    format: "DD-MM-YYYY",
+                                    type: "mask",
+                                  }}
+                                  defaultValue=""
+                                  placeholder="Select Date"
+                                />
+                              )}
+
                               <span className="input-icon-addon">
                                 <i className="ti ti-calendar" />
                               </span>
@@ -517,23 +519,27 @@ const TeacherForm = () => {
                               Date of Leaving
                             </label>
                             <div className="input-icon position-relative">
-                            {isEdit? <DatePicker
-                                className="form-control datetimepicker"
-                                format={{
-                                  format: "DD-MM-YYYY",
-                                  type: "mask",
-                                }}
-                                value={defaultDate}
-                                placeholder="Select Date"
-                              /> : <DatePicker
-                              className="form-control datetimepicker"
-                              format={{
-                                format: "DD-MM-YYYY",
-                                type: "mask",
-                              }}
-                              defaultValue=""
-                              placeholder="Select Date"
-                            />}
+                              {isEdit ? (
+                                <DatePicker
+                                  className="form-control datetimepicker"
+                                  format={{
+                                    format: "DD-MM-YYYY",
+                                    type: "mask",
+                                  }}
+                                  value={defaultDate}
+                                  placeholder="Select Date"
+                                />
+                              ) : (
+                                <DatePicker
+                                  className="form-control datetimepicker"
+                                  format={{
+                                    format: "DD-MM-YYYY",
+                                    type: "mask",
+                                  }}
+                                  defaultValue=""
+                                  placeholder="Select Date"
+                                />
+                              )}
                               <span className="input-icon-addon">
                                 <i className="ti ti-calendar" />
                               </span>

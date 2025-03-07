@@ -8,3 +8,4 @@ make sure the update student tab is working fine
 |
 
 
+make sure that in update students: the previous info also stays along with the new info added

@@ -4,7 +4,7 @@ import PredefinedDateRanges from "../../../../core/common/datePicker";
 import { Link } from "react-router-dom";
 import { all_routes } from "../../../router/all_routes";
 import {
-    allClass,
+  studentClass,
   names,
   parent,
   status,
@@ -173,13 +173,13 @@ const GuardianList = () => {
                   </li>
                   <li className="breadcrumb-item">Peoples</li>
                   <li className="breadcrumb-item active" aria-current="page">
-                  Guardian  
+                    Guardian
                   </li>
                 </ol>
               </nav>
             </div>
             <div className="d-flex my-xl-auto right-content align-items-center flex-wrap">
-            <TooltipOption />
+              <TooltipOption />
 
               <div className="mb-2">
                 <Link
@@ -243,25 +243,25 @@ const GuardianList = () => {
                             </div>
                           </div>
                           <div className="col-md-12">
-                          <div className="mb-3">
-                            <label className="form-label">Class</label>
-                            <CommonSelect
-                              className="select"
-                              options={allClass}
-                              defaultValue={allClass[0]}
-                            />
+                            <div className="mb-3">
+                              <label className="form-label">Class</label>
+                              <CommonSelect
+                                className="select"
+                                options={studentClass}
+                                defaultValue={studentClass[0]}
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="mb-3">
-                            <label className="form-label">Status</label>
-                            <CommonSelect
-                              className="select"
-                              options={status}
-                              defaultValue={status[0]}
-                            />
+                          <div className="col-md-12">
+                            <div className="mb-3">
+                              <label className="form-label">Status</label>
+                              <CommonSelect
+                                className="select"
+                                options={status}
+                                defaultValue={status[0]}
+                              />
+                            </div>
                           </div>
-                        </div>
                         </div>
                       </div>
                       <div className="p-3 d-flex align-items-center justify-content-end">
@@ -330,11 +330,10 @@ const GuardianList = () => {
             <div className="card-body p-0 py-3">
               {/* Student List */}
               <Table dataSource={data} columns={columns} Selection={true} />
-              
+
               {/* /Student List */}
             </div>
           </div>
-
         </div>
       </div>
       {/* /Page Wrapper */}

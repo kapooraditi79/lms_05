@@ -4,33 +4,45 @@ import ImageWithBasePath from "../../../../core/common/imageWithBasePath";
 import axios from "axios";
 import { Student } from "../../../../core/data/interface";
 
-const StudentSidebar = ({regNo}:string|any) => {
+const StudentSidebar = ({ regNo }: string | any) => {
   const [student, setStudent] = useState<Student>({
-          session:"",
-          firstName: "",
-          lastName:"",
-          regNo:"",
-          rollNo: "",
-          gender: "",
-          class:"",
-          joinedOn: "",
-          grade: "",
-          section: "",
-          status: "",
-          profileImage: "",
-        });
-  const fetchStudentbyId=async()=>{
+    session: "",
+    firstName: "",
+    lastName: "",
+    regNo: "",
+    rollNo: "",
+    gender: "",
+    studentClass: "",
+    joinedOn: "",
+    grade: "",
+    section: "",
+    status: "",
+    profileImage: "",
+    parentData: {
+      fatherName: "",
+      fatherPhone: "",
+      fatherEmail: "",
+      fatherImage: "",
+      motherName: "",
+      motherPhone: "",
+      motherEmail: "",
+      motherImage: "",
+    },
+  });
+  const fetchStudentbyId = async () => {
     try {
-      const student=await axios.get(`http://localhost:6555/api/student/${regNo}`)
-      console.log(student.data)
-      setStudent(student.data)
+      const student = await axios.get(
+        `http://localhost:6555/api/student/${regNo}`
+      );
+      console.log(student.data);
+      setStudent(student.data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   useEffect(() => {
-    fetchStudentbyId()
-  },[regNo]);
+    fetchStudentbyId();
+  }, [regNo]);
   return (
     <div className="col-xxl-3 col-xl-4 theiaStickySidebar">
       <div className="stickybar pb-4">
@@ -49,7 +61,9 @@ const StudentSidebar = ({regNo}:string|any) => {
                   <i className="ti ti-circle-filled fs-5 me-1" />
                   {student.status}
                 </span>
-                <h5 className="mb-1 text-truncate">{student.firstName} {student.lastName}</h5>
+                <h5 className="mb-1 text-truncate">
+                  {student.firstName} {student.lastName}
+                </h5>
                 <p className="text-primary">{student.regNo}</p>
               </div>
             </div>

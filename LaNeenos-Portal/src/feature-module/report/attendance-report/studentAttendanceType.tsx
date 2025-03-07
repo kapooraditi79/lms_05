@@ -6,13 +6,11 @@ import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import Table from "../../../core/common/dataTable/index";
 import {
-  allClass,
+  studentClass,
   allSection,
   AttendanceTypeList,
   count,
-  
   names,
-  
 } from "../../../core/common/selectoption/selectoption";
 import dayjs from "dayjs";
 import { DatePicker } from "antd";
@@ -206,7 +204,7 @@ const StudentAttendanceType = () => {
             {/* /List Tab */}
           </div>
           {/* /Filter Section */}
-         
+
           {/* Attendance List */}
           <div className="card">
             <div className="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
@@ -242,7 +240,7 @@ const StudentAttendanceType = () => {
 
                               <CommonSelect
                                 className="select"
-                                options={allClass}
+                                options={studentClass}
                                 defaultValue={undefined}
                               />
                             </div>
@@ -269,7 +267,9 @@ const StudentAttendanceType = () => {
                           </div>
                           <div className="col-md-6">
                             <div className="mb-3">
-                              <label className="form-label">Attendance Type</label>
+                              <label className="form-label">
+                                Attendance Type
+                              </label>
                               <CommonSelect
                                 className="select"
                                 options={AttendanceTypeList}
@@ -289,7 +289,9 @@ const StudentAttendanceType = () => {
                           </div>
                           <div className="col-md-12">
                             <div className="mb-0">
-                              <label className="form-label">Date of Admission</label>
+                              <label className="form-label">
+                                Date of Admission
+                              </label>
                               <div className="date-pic">
                                 <DatePicker
                                   className="form-control datetimepicker"

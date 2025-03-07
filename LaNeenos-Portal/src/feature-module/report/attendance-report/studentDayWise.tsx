@@ -6,7 +6,7 @@ import PredefinedDateRanges from "../../../core/common/datePicker";
 import CommonSelect from "../../../core/common/commonSelect";
 import Table from "../../../core/common/dataTable/index";
 import {
-  allClass,
+  studentClass,
   allSection,
   date,
 } from "../../../core/common/selectoption/selectoption";
@@ -68,7 +68,8 @@ const StudentDayWise = () => {
       dataIndex: "attendance",
       render: (text: string, record: any) => (
         <span className={`${record.class} d-inline-flex align-items-center`}>
-          <i className="ti ti-circle-filled fs-5 me-1"></i>{text}
+          <i className="ti ti-circle-filled fs-5 me-1"></i>
+          {text}
         </span>
       ),
       sorter: (a: TableData, b: TableData) =>
@@ -201,7 +202,7 @@ const StudentDayWise = () => {
 
                               <CommonSelect
                                 className="select"
-                                options={allClass}
+                                options={studentClass}
                                 defaultValue={undefined}
                               />
                             </div>

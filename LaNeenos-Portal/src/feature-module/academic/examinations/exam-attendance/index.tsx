@@ -3,7 +3,7 @@ import ImageWithBasePath from "../../../../core/common/imageWithBasePath";
 import PredefinedDateRanges from "../../../../core/common/datePicker";
 import CommonSelect from "../../../../core/common/commonSelect";
 import {
-  allClass,
+  studentClass,
   classSection,
   weeklytest,
 } from "../../../../core/common/selectoption/selectoption";
@@ -65,11 +65,9 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-danger">
-          </span>
+            <span className="attendance-range bg-danger"></span>
           )}
         </>
       ),
@@ -82,11 +80,9 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-danger">
-          </span>
+            <span className="attendance-range bg-danger"></span>
           )}
         </>
       ),
@@ -99,11 +95,9 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-pending">
-          </span>
+            <span className="attendance-range bg-pending"></span>
           )}
         </>
       ),
@@ -116,11 +110,9 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-pending">
-          </span>
+            <span className="attendance-range bg-pending"></span>
           )}
         </>
       ),
@@ -133,16 +125,13 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-pending">
-          </span>
+            <span className="attendance-range bg-pending"></span>
           )}
         </>
       ),
-      sorter: (a: TableData, b: TableData) =>
-        a.maths.length - b.maths.length,
+      sorter: (a: TableData, b: TableData) => a.maths.length - b.maths.length,
     },
     {
       title: "Computer",
@@ -150,11 +139,9 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-danger">
-          </span>
+            <span className="attendance-range bg-danger"></span>
           )}
         </>
       ),
@@ -167,18 +154,15 @@ const ExamAttendance = () => {
       render: (text: string, record: any, index: number) => (
         <>
           {text === "green" ? (
-           <span className="attendance-range bg-success">
-            </span>
+            <span className="attendance-range bg-success"></span>
           ) : (
-            <span className="attendance-range bg-pending">
-          </span>
+            <span className="attendance-range bg-pending"></span>
           )}
         </>
       ),
       sorter: (a: TableData, b: TableData) =>
         a.envScience.length - b.envScience.length,
     },
-    
   ];
   return (
     <div>
@@ -205,7 +189,7 @@ const ExamAttendance = () => {
                 </nav>
               </div>
               <div className="d-flex my-xl-auto right-content align-items-center flex-wrap">
-              <TooltipOption />
+                <TooltipOption />
               </div>
             </div>
             {/* /Page Header */}
@@ -261,7 +245,7 @@ const ExamAttendance = () => {
                                 <label className="form-label">Class</label>
                                 <CommonSelect
                                   className="select"
-                                  options={allClass}
+                                  options={studentClass}
                                 />
                               </div>
                             </div>
