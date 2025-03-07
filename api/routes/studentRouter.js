@@ -27,4 +27,10 @@ router.post("/edit", getStudentByFilter);
 // Delete a student
 router.delete("/delete/:id", deleteStudent);
 
+// Mark attendance for a student
+router.post("/attendance", markAttendance);
+
+// Get attendance for a student
+router.get("/attendance/:regNo", getStudentAttendance);
+
 export default router;

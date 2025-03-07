@@ -1,4 +1,5 @@
 import Student from "../models/student.js";
+import attendance from "../models/attendance.js";
 
 export const getAllStudents = async (req, res) => {
   try {
@@ -97,6 +98,41 @@ export const deleteStudent = async (req, res) => {
     if (!deletedStudent)
       return res.status(404).json({ message: "Student not found" });
     res.status(200).json({ message: "Student deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const markAttendance = async function (req, res) {
+  try {
+    console.log("Recieved Payload:", req.body);
+    const { regNo, date, attendanceStatus, markedBy, remarks } = req.body;
+    const student = await Student.findOne({ regNo });
+    if (!student) return res.status(404).json({ message: "student not found" });
+    const attendance = new attendance({
+      student: student._id,
+      date,
+      attendanceStatus,
+      remarks,
+      markedBy,
+    });
+    const response = await attendance.save();
+    if (response) console.log("Attendance marked successfully", response);
+    res.status(201).json(response);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getStudentAttendance = async function (req, res) {
+  try {
+    const { regNo } = req.params;
+    const student = await Student.findOne({ regNo });
+    if (!student) return res.status(404).json({ message: "student not found" });
+    const attendance = await attendance.find({ student: student._id });
+    if (attendance.length === 0)
+      return res.status(404).json({ message: "no attendance found" });
+    res.status(200).json(attendance);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
