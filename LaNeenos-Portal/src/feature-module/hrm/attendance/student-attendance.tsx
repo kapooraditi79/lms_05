@@ -89,56 +89,57 @@ const StudentAttendance = () => {
     {
       title: "Attendance",
       dataIndex: "attendance",
-      render: (text: string, record: any ) => (
+      render: (text: string, record: any) => (
         <div className="d-flex align-items-center check-radio-group flex-nowrap">
           <label className="custom-radio">
-            <input 
-              type="radio" 
-              name={`student${record.key}`} 
-              defaultChecked={record.present === "true"} 
+            <input
+              type="radio"
+              name={`student${record.key}`}
+              defaultChecked={record.present === "true"}
             />
             <span className="checkmark" />
             Present
           </label>
           <label className="custom-radio">
-            <input 
-              type="radio" 
-              name={`student${record.key}`} 
-              defaultChecked={record.Late === "true"} 
+            <input
+              type="radio"
+              name={`student${record.key}`}
+              defaultChecked={record.Late === "true"}
             />
             <span className="checkmark" />
             Late
           </label>
           <label className="custom-radio">
-            <input 
-              type="radio" 
-              name={`student${record.key}`} 
-              defaultChecked={record.Absent === "true"} 
+            <input
+              type="radio"
+              name={`student${record.key}`}
+              defaultChecked={record.Absent === "true"}
             />
             <span className="checkmark" />
             Absent
           </label>
           <label className="custom-radio">
-            <input 
-              type="radio" 
-              name={`student${record.key}`} 
-              defaultChecked={record.Holiday === "true"} 
+            <input
+              type="radio"
+              name={`student${record.key}`}
+              defaultChecked={record.Holiday === "true"}
             />
             <span className="checkmark" />
             Holiday
           </label>
           <label className="custom-radio">
-            <input 
-              type="radio" 
-              name={`student${record.key}`} 
-              defaultChecked={record.Halfday === "true"} 
+            <input
+              type="radio"
+              name={`student${record.key}`}
+              defaultChecked={record.Halfday === "true"}
             />
             <span className="checkmark" />
             Halfday
           </label>
         </div>
       ),
-      sorter: (a: TableData, b: TableData) => a.attendance.length - b.attendance.length,
+      sorter: (a: TableData, b: TableData) =>
+        a.attendance.length - b.attendance.length,
     },
     {
       title: "Notes",

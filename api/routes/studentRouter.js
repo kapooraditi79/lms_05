@@ -6,6 +6,10 @@ import {
   getAllStudents,
   updateStudent,
   getStudentByFilter,
+  getStudentAttendance,
+  markAttendance,
+  removeStudentFromClass,
+  addStudentToClass,
 } from "../controllers/studentController.js";
 const router = express.Router();
 
@@ -32,5 +36,11 @@ router.post("/attendance", markAttendance);
 
 // Get attendance for a student
 router.get("/attendance/:regNo", getStudentAttendance);
+
+// Add a student to a class
+router.post("/add-to-class", addStudentToClass);
+
+// Remove a student from a class
+router.post("/remove-from-class", removeStudentFromClass);
 
 export default router;

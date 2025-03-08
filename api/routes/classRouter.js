@@ -2,9 +2,7 @@ import express from "express";
 import {
   createClass,
   deleteClass,
-  deleteClassByIdOrName,
   getAllClass,
-  getClassByIdOrName,
   updateClass,
 } from "../controllers/classController.js";
 const router = express.Router();
@@ -16,7 +14,6 @@ router.get("/", getAllClass);
 router.post("/", createClass);
 
 // Get a specific class by ID
-router.get("/:id", getClassByIdOrName);
 
 // Update a specific class by ID
 router.put("/:id", updateClass);

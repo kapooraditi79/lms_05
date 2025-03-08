@@ -1,42 +1,22 @@
 import mongoose, { model } from "mongoose";
 
-const classSchema = new mongoose.Schema(
+const studentClassSchema = new mongoose.Schema(
   {
     session: {
       type: String,
       required: true,
     },
-    regNo:{
+    studentClassName: {
       type: String,
       required: true,
+      unique: true,
     },
-    className: {
+    status: {
       type: String,
-      required: true,
+      enum: ["active", "inactive"],
+      default: "active",
     },
-    section:{
-      type:String,
-      required:true
-    },
-    status:{
-      type: String,
-      required: true,
-    },
-    noOfStudent:{
-      type:Number,
-      required:true
-    },
-    noOfSubjects:{
-      type:Number,
-      required:true
-    },
-    teacher: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "teacher",
-      },
-    ],
-    student: [
+    students: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "student",
@@ -45,5 +25,5 @@ const classSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-const classModel = model("class", classSchema);
-export default classModel;
+const studentClassModel = model("studentClass", studentClassSchema);
+export default studentClassModel;

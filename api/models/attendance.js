@@ -29,4 +29,5 @@ const attendanceSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("attendance", attendanceSchema);
+// module.exports = mongoose.model("attendance", attendanceSchema);
+export default mongoose.model("attendance", attendanceSchema);

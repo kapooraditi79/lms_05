@@ -1,34 +1,31 @@
 import mongoose from "mongoose";
 
-const teacherSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
+const teacherSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      unique: true, // Ensures emails are unique
+    },
+    salary: {
+      type: Number,
+    },
+    teacherId: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      //required: true,
+    },
   },
-  email: {
-    type: String,
-    unique: true, // Ensures emails are unique
-  },
-  salary: {
-    type: Number,
-  },
-  // subjects: [
-  //   {
-  //     type: String
-  //   }
-  // ],
-  // school: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "school",
-  // },
-  // class: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "class",
-  //   },
-  // ],
-});
+  { timestamps: true }
+);
 
-const TeacherModel=mongoose.model('teacher',teacherSchema);
+const TeacherModel = mongoose.model("teacher", teacherSchema);
 
-export default TeacherModel
+export default TeacherModel;

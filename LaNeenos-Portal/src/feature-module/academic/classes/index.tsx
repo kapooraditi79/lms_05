@@ -4,7 +4,7 @@ import Table from "../../../core/common/dataTable/index";
 import PredefinedDateRanges from "../../../core/common/datePicker";
 import {
   activeList,
-  classSection,
+  classSession,
   classSylabus,
 } from "../../../core/common/selectoption/selectoption";
 import CommonSelect from "../../../core/common/commonSelect";
@@ -17,61 +17,54 @@ import axios from "axios";
 const Classes = () => {
   const dropdownMenuRef = useRef<HTMLDivElement | null>(null);
 
-  const [fetclass,setFetclass]=useState<ClassesInt[]>([
+  const [fetclass, setFetclass] = useState<ClassesInt[]>([
     {
-      regNo:"",
-      className:"",
-      section:"",
-      status:"",
-      noOfStudent:0,
-      noOfSubjects:0,
-      session:"",
-      teacher:"",
-      students:"",
-    }
-  ])
+      studentClassName: "",
+      noOfStudent: 0,
+      status: "",
+      session: "",
+      students: "",
+    },
+  ]);
   const [selectedClass, setSelectedClass] = useState<ClassesInt | null>(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   // State for form data in the edit modal
   const [formData, setFormData] = useState({
-    className: "",
-    section: "",
+    studentClassName: "",
+    session: "",
     noOfStudent: 0,
-    noOfSubjects: 0,
     status: "",
   });
-  const route = all_routes
+  const route = all_routes;
 
   const columns = [
-    {
-      title: "ID",
-      dataIndex: "regNo",
-      render: (text: string, record: any) => (
-        <Link to="#" className="link-primary">
-          {record.regNo}
-        </Link>
-      ),
-    },
+    // {
+    //   title: "ID",
+    //   dataIndex: "regNo",
+    //   render: (text: string, record: any) => (
+    //     <Link to="#" className="link-primary">
+    //       {record.regNo}
+    //     </Link>
+    //   ),
+    // },
     {
       title: "Class",
       dataIndex: "className",
       sorter: (a: TableData, b: TableData) => a.class.length - b.class.length,
     },
-    {
-      title: "Section",
-      dataIndex: "section",
-      sorter: (a: TableData, b: TableData) => a.section.length - b.section.length,
-    },
+    // {
+    //   title: "Session",
+    //   dataIndex: "session",
+    //   sorter: (a: TableData, b: TableData) =>
+    //     a.session.length - b.session.length,
+    // },
     {
       title: "No of Student",
       dataIndex: "noOfStudent",
-      sorter: (a: TableData, b: TableData) => a.noOfStudents.length - b.noOfStudents.length,
+      sorter: (a: TableData, b: TableData) =>
+        a.noOfStudents.length - b.noOfStudents.length,
     },
-    {
-      title: "No of Subjects",
-      dataIndex: "noOfSubjects",
-      sorter: (a: TableData, b: TableData) => a.noOfSubjects - b.noOfSubjects,
-    },
+
     {
       title: "Status",
       dataIndex: "status",
@@ -126,7 +119,8 @@ const Classes = () => {
                   data-bs-target="#delete-modal"
                   onClick={() => {
                     setSelectedClass(record);
-                    setIsDeleteModalOpen(true);}}
+                    setIsDeleteModalOpen(true);
+                  }}
                 >
                   <i className="ti ti-trash-x me-2" />
                   Delete
@@ -141,24 +135,29 @@ const Classes = () => {
 
   const fetchData = async () => {
     try {
-      const res=await axios.get('http://localhost:6555/api/class')
-      const formattedData = res.data.map((item: any) => ({ ...item, key: item._id }));
-      setFetclass(formattedData)
+      const res = await axios.get("http://localhost:6555/api/class");
+      const formattedData = res.data.data.map((item: any) => ({
+        key: item._id,
+        className: item.studentClassName,
+        noOfStudent: item.students.length,
+        status: item.status,
+        session: item.session,
+      }));
+      setFetclass(formattedData);
     } catch (error) {
       console.log(error);
     }
-  }
-  useEffect(() =>{
-    fetchData()
-    console.log(fetclass)
-  },[])
+  };
+  useEffect(() => {
+    fetchData();
+    console.log(fetclass);
+  }, []);
   useEffect(() => {
     if (selectedClass) {
       setFormData({
-        className: selectedClass.className,
-        section: selectedClass.section,
+        studentClassName: selectedClass.studentClassName,
+        session: selectedClass.session || "",
         noOfStudent: selectedClass.noOfStudent,
-        noOfSubjects: selectedClass.noOfSubjects,
         status: selectedClass.status,
       });
     }
@@ -167,7 +166,7 @@ const Classes = () => {
     e.preventDefault();
     if (selectedClass) {
       try {
-        const res=await axios.put(
+        const res = await axios.put(
           `http://localhost:6555/api/class/${selectedClass.key}`,
           formData
         );
@@ -176,36 +175,52 @@ const Classes = () => {
           prev.map((item) =>
             item.key === selectedClass.key ? updatedClass : item
           )
-        );        
-        console.log("handle Submit",formData,selectedClass)
+        );
+        console.log("handle Submit", formData, selectedClass);
       } catch (error) {
         console.log("Error updating class:", error);
       }
     }
   };
-  const deleteClass = async (e:React.FormEvent)=>{
+  const deleteClass = async (e: React.FormEvent) => {
     e.preventDefault();
-    if(selectedClass){
+    if (selectedClass) {
       try {
-        const res=await axios.delete(`http://localhost:6555/api/class/${selectedClass.key}`);
-        setFetclass((prev) => prev.filter((item) => item.key !== selectedClass.key));
+        const res = await axios.delete(
+          `http://localhost:6555/api/class/${selectedClass.key}`
+        );
+        setFetclass((prev) =>
+          prev.filter((item) => item.key !== selectedClass.key)
+        );
       } catch (error) {
         console.log("Error deleting class:", error);
       }
     }
-  }
-  const addClass = async (e:React.FormEvent)=>{
+  };
+  const addClass = async (e: React.FormEvent) => {
     e.preventDefault();
-      try {
-        console.log(formData)
-        const res=await axios.post("http://localhost:6555/api/class",formData);
-        const newClass = { ...res.data, key: res.data._id };
-        setFetclass((prev) => [...prev, newClass]);
-        await fetchData();
-      } catch (error) {
-        console.log("Error deleting class:", error);
+    try {
+      const payload = {
+        studentClassName: formData.studentClassName,
+        session: formData.session,
+        noOfStudent: formData.noOfStudent, //will take care of this later
+        status: formData.status,
+      };
+      const res = await axios.post("http://localhost:6555/api/class", payload);
+      const newClass = {
+        ...res.data.data,
+        key: res.data.data._id,
+        className: res.data.data.studentClassName,
+        noOfStudent: res.data.data.students?.length || 0,
+        session: res.data.data.session,
+        status: res.data.data.status === "active" ? "Active" : "Inactive",
+      };
+      setFetclass((prev) => [...prev, newClass]);
+      await fetchData();
+    } catch (error) {
+      console.log("Error deleting class:", error);
     }
-  }
+  };
   const handleApplyClick = () => {
     if (dropdownMenuRef.current) {
       dropdownMenuRef.current.classList.remove("show");
@@ -291,11 +306,11 @@ const Classes = () => {
                           </div>
                           <div className="col-md-12">
                             <div className="mb-3">
-                              <label className="form-label">Section</label>
+                              <label className="form-label">Session</label>
                               <CommonSelect
                                 className="select"
-                                options={classSection}
-                                defaultValue={classSection[0]}
+                                options={classSession}
+                                defaultValue={classSession[0]}
                               />
                             </div>
                           </div>
@@ -396,26 +411,26 @@ const Classes = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Class Name"
-                          value={formData.className}
+                          value={formData.studentClassName}
                           onChange={(e) =>
                             setFormData({
                               ...formData,
-                              className: e.target.value,
+                              studentClassName: e.target.value,
                             })
                           }
                         />
                       </div>
                       <div className="mb-3">
-                        <label className="form-label">Section</label>
+                        <label className="form-label">Session</label>
                         <CommonSelect
                           className="select"
-                          options={classSection}
-                          defaultValue={classSection[0]}
-                          onChange={(option)=>{
-                            setFormData((prev)=>({
+                          options={classSession}
+                          defaultValue={classSession[0]}
+                          onChange={(option) => {
+                            setFormData((prev) => ({
                               ...prev,
-                              section:option?option.value: "A"
-                            }))
+                              session: option ? option.value : "",
+                            }));
                           }}
                         />
                       </div>
@@ -434,28 +449,14 @@ const Classes = () => {
                           }
                         />
                       </div>
-                      <div className="mb-3">
-                        <label className="form-label">No of Subjects</label>
-                        <input
-                          type="number"
-                          className="form-control"
-                          placeholder="Enter no of Subjects"
-                          value={formData.noOfSubjects}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              noOfSubjects: parseInt(e.target.value) || 0,
-                            })
-                          }
-                        />
-                      </div>
+
                       <div className="d-flex align-items-center justify-content-between">
                         <div className="status-title">
                           <h5>Status</h5>
                           <p>Change the Status by toggle </p>
                         </div>
                         <div className="form-check form-switch">
-                        <input
+                          <input
                             className="form-check-input"
                             type="checkbox"
                             role="switch"
@@ -482,7 +483,11 @@ const Classes = () => {
                   >
                     Cancel
                   </Link>
-                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
                     Add Class
                   </button>
                 </div>
@@ -516,26 +521,28 @@ const Classes = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Class Name"
-                          value={formData.className}
+                          value={formData.studentClassName}
                           onChange={(e) =>
                             setFormData({
                               ...formData,
-                              className: e.target.value,
+                              studentClassName: e.target.value,
                             })
                           }
                         />
                       </div>
                       <div className="mb-3">
-                        <label className="form-label">Section</label>
+                        <label className="form-label">Session</label>
                         <CommonSelect
                           className="select"
-                          options={classSection}
-                          defaultValue={classSection.find(sec=>sec.value===formData.section)}
-                          onChange={(option)=>{
-                            setFormData((prev)=>({
+                          options={classSession}
+                          defaultValue={classSession.find(
+                            (sec) => sec.value === formData.session
+                          )}
+                          onChange={(option) => {
+                            setFormData((prev) => ({
                               ...prev,
-                              section:option?option.value: "A"
-                            }))
+                              session: option ? option.value : "A",
+                            }));
                           }}
                         />
                       </div>
@@ -554,21 +561,7 @@ const Classes = () => {
                           }
                         />
                       </div>
-                      <div className="mb-3">
-                        <label className="form-label">No of Subjects</label>
-                        <input
-                          type="number"
-                          className="form-control"
-                          placeholder="Enter no of Subjects"
-                          value={formData.noOfSubjects}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              noOfSubjects: parseInt(e.target.value) || 0,
-                            })
-                          }
-                        />
-                      </div>
+
                       <div className="d-flex align-items-center justify-content-between">
                         <div className="status-title">
                           <h5>Status</h5>
@@ -603,7 +596,11 @@ const Classes = () => {
                   >
                     Cancel
                   </Link>
-                  <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
                     Save Changes
                   </button>
                 </div>
@@ -634,9 +631,13 @@ const Classes = () => {
                     >
                       Cancel
                     </Link>
-                    <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
-                    Yes Delete
-                  </button>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      data-bs-dismiss="modal"
+                    >
+                      Yes Delete
+                    </button>
                   </div>
                 </div>
               </form>
@@ -676,7 +677,7 @@ const Classes = () => {
                     </div>
                     <div className="col-md-6">
                       <div className="class-detail-info">
-                        <p>Section</p>
+                        <p>Session</p>
                         <span>A</span>
                       </div>
                     </div>

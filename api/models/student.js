@@ -80,6 +80,7 @@ const studentSchema = new mongoose.Schema(
     transport: {
       type: String,
     },
+
     attendance: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "attendance",

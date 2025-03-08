@@ -65,3 +65,32 @@ Visualizing the flow of: Update Student Feature
 
 6. User Sees Data
    - Form fields display "AD123", "John", etc., ready for editing
+
+
+
+
+FLOW OF CLASS MODULE
+Explanation OF fetchData function()
+1.Purpose: Fetches the list of all active classes from the backend and updates the fetclass state, which populates the table.
+2.Backend Connection:
+Endpoint: GET http://localhost:6555/api/class
+Router: router.get("/", getAllClass)
+Controller: getAllClass
+3.Queries the database for classes with status: "active".
+4.Populates the students field with student details (regNo, firstName, lastName).
+5.Returns an array of class objects.
+6.Data Transformation: Maps the response data to include a key field (set to _id) for use in the Table component.
+7.Response Expected: Array of objects like:
+json
+         [
+         {
+            "_id": "someMongoId",
+            "session": "2023-2024",
+            "studentClassName": "Class 1",
+            "status": "active",
+            "students": [{ "regNo": "123", "firstName": "John", "lastName": "Doe" }],
+            "createdAt": "...",
+            "updatedAt": "..."
+         }
+         ]
+Frontend Usage: Updates fetclass state, which is passed to the Table component as dataSource.

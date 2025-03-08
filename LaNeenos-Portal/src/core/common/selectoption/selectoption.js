@@ -534,11 +534,16 @@ export const classSylabus = [
   { value: "II", label: "II" },
   { value: "III", label: "III" },
 ];
-export const classSection = [
-  { value: "Select", label: "Select" },
-  { value: "A", label: "A" },
-  { value: "B", label: "B" },
-  { value: "C", label: "C" },
+//getting the current date and adding an year to it
+export const classSession = [
+  { value: "February 2025/26", label: "February 2025/26" },
+  { value: "March 2025/26", label: "March 2025/26" },
+  { value: "April 2025/26", label: "April 2025/26" },
+  { value: "May 2025/26", label: "May 2025/26" },
+  { value: "June 2025/26", label: "June 2025/26" },
+  { value: "July 2025/26", label: "July 2025/26" },
+  { value: "August 2025/26", label: "August 2025/26" },
+  { value: "September 2025/26", label: "September 2025/26" },
 ];
 export const language = [
   { value: "Select", label: "Select" },

@@ -365,13 +365,9 @@ export interface Student {
 
 export interface ClassesInt {
   key?: any;
-  regNo: string;
-  className: string;
-  section: string;
+  studentClassName: string;
   status: string;
   noOfStudent: number;
-  noOfSubjects: number;
   session?: string;
-  teacher?: any;
   students?: any;
 }
